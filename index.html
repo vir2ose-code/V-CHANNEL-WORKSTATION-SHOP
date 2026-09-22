@@ -117,7 +117,7 @@
             color: #0B0E14;
         }
 
-        /* Sektionen Allgemein (Nach unten Scrollen) */
+        /* Sektionen Allgemein */
         .section {
             padding: 90px 20px;
             max-width: 1200px;
@@ -139,10 +139,10 @@
             font-size: 1.05rem;
         }
 
-        /* Grid für Features / Module */
+        /* Grid für Features / Module mit Bildern */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 30px;
         }
 
@@ -150,7 +150,9 @@
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 35px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
@@ -159,19 +161,45 @@
             border-color: var(--cyan-glow);
         }
 
+        .card-img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
         .card h3 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--cyan-glow);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            flex-grow: 1;
         }
 
-        /* Plugins / Native DSP Suite Sektion */
+        /* Plugins Sektion */
         .plugins-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0F131D 100%);
             border-top: 1px solid var(--border-color);
@@ -194,9 +222,8 @@
 </head>
 <body>
 
-    <!-- HERO SEKTION MIT DEINEM NEUEN BANNER -->
+    <!-- HERO SEKTION -->
     <header class="hero">
-        <!-- Hier greift die Seite nun direkt auf dein neues Banner-Bild zu -->
         <img src="image_867c17.jpg" alt="V-CHANNEL STUDIO PRO 1.0 Signature" class="hero-banner-img">
         
         <h1>THE NEW EXPERIENCE IN MUSIC PRODUCTION</h1>
@@ -208,56 +235,112 @@
         </div>
     </header>
 
-    <!-- SEKTION 2: DIE HIGHLIGHT-MODULE (Nach unten scrollen) -->
+    <!-- SEKTION 2: MODULE MIT UI-SCREENSHOTS -->
     <section class="section" id="modules">
         <h2 class="section-title">Natives Workflow-Kraftwerk</h2>
         <p class="section-subtitle">Entwickelt aus 26 Jahren Studio-Praxis und modernster DSP-Architektur.</p>
         
         <div class="grid-3">
+            <!-- 1. V-SPH3RE -->
             <div class="card">
-                <h3>V-SPH3RE 3D Immersive</h3>
-                <p>Natives 7.1.4 Immersive Bed und Binaurales Monitoring über das Woodworth-HRTF-Modell. Lass Spuren in 360° um den Kopf kreisen – ganz ohne externe Middleware.</p>
+                <div class="card-img-container">
+                    <img src="v_sphere.png" alt="V-SPH3RE 3D Immersive">
+                </div>
+                <div class="card-content">
+                    <h3>V-SPH3RE 3D Immersive</h3>
+                    <p>Natives 7.1.4 Immersive Bed und Binaurales Monitoring über das Woodworth-HRTF-Modell. Lass Spuren in 360° um den Kopf kreisen – ganz ohne externe Middleware.</p>
+                </div>
             </div>
+
+            <!-- 2. V-CHOPPER -->
             <div class="card">
-                <h3>V-CHOPPER Spatial Slicer</h3>
-                <p>Der welterste 3D-Slicer. Zerscheide Audio-Clips per Transienten-Erkennung, pitche stufenlos wie Kaugummi (−12 bis +12 st) und verteile Slices direkt im Raum.</p>
+                <div class="card-img-container">
+                    <img src="v_chopper.png" alt="V-CHOPPER Spatial Slicer">
+                </div>
+                <div class="card-content">
+                    <h3>V-CHOPPER Spatial Slicer</h3>
+                    <p>Der welterste 3D-Slicer. Zerscheide Audio-Clips per Transienten-Erkennung, pitche stufenlos wie Kaugummi (−12 bis +12 st) und verteile Slices direkt im Raum.</p>
+                </div>
             </div>
+
+            <!-- 3. V-SCRATCH LIVE -->
             <div class="card">
-                <h3>V-SCRATCH LIVE Deck</h3>
-                <p>Echtes Turntablism direkt im Host. Latenzfreies Vinyl-Jogwheel, Crossfader, 8 Performance-Pads und 1-Click [ REC TO TIMELINE ] Aufzeichnung.</p>
+                <div class="card-img-container">
+                    <img src="v_scratch.png" alt="V-SCRATCH LIVE Deck">
+                </div>
+                <div class="card-content">
+                    <h3>V-SCRATCH LIVE Deck</h3>
+                    <p>Echtes Turntablism direkt im Host. Latenzfreies Vinyl-Jogwheel, Crossfader, 8 Performance-Pads und 1-Click [ REC TO TIMELINE ] Aufzeichnung.</p>
+                </div>
             </div>
+
+            <!-- 4. BEATCLOUD -->
             <div class="card">
-                <h3>BEATCLOUD Community Vault</h3>
-                <p>16-Step Sequencer mit Multi-Out Routing und direktem, interaktivem .vbeat-Muster-Austausch direkt in deiner DAW.</p>
+                <div class="card-img-container">
+                    <img src="beatcloud.png" alt="BEATCLOUD Community Vault">
+                </div>
+                <div class="card-content">
+                    <h3>BEATCLOUD Community Vault</h3>
+                    <p>16-Step Sequencer mit Multi-Out Routing und direktem, interaktivem .vbeat-Muster-Austausch direkt in deiner DAW.</p>
+                </div>
             </div>
+
+            <!-- 5. BUS CONSOLE -->
             <div class="card">
-                <h3>FX BUS CONSOLE</h3>
-                <p>Schwebendes PopUp-Effekt-Rack für parallele Aux-Returns (Reverbs, Delays) mit Zonen-Fokus und nahtloser Taskleisten-Kopplung.</p>
+                <div class="card-img-container">
+                    <img src="bus_consol.png" alt="FX BUS CONSOLE">
+                </div>
+                <div class="card-content">
+                    <h3>FX BUS CONSOLE</h3>
+                    <p>Schwebendes PopUp-Effekt-Rack für parallele Aux-Returns (Reverbs, Delays) mit Zonen-Fokus und nahtloser Taskleisten-Kopplung.</p>
+                </div>
             </div>
+
+            <!-- 6. SCORE & PDF -->
             <div class="card">
-                <h3>Score & PDF Export</h3>
-                <p>Verwandle polyphone MIDI-Clips mit einem Klick in klassische Partituren (Grand Staff) mit Violin- und Bassschlüssel und exportiere direkt nach A4 PDF.</p>
+                <div class="card-img-container">
+                    <img src="score.png" alt="Score & PDF Export">
+                </div>
+                <div class="card-content">
+                    <h3>Score & PDF Export</h3>
+                    <p>Verwandle polyphone MIDI-Clips mit einem Klick in klassische Partituren (Grand Staff) mit Violin- und Bassschlüssel und exportiere direkt nach A4 PDF.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SEKTION 3: DIE NATIVE DSP SUITE (Deine Plugins) -->
+    <!-- SEKTION 3: NATIVE DSP SUITE -->
     <section class="section plugins-section">
         <h2 class="section-title">Powered by vir2ose DSP Suite</h2>
         <p class="section-subtitle">Dieselbe kompromisslose analog gemodelte Audio-Mathematik treibt auch die internen Kanäle und Master-Inserts an.</p>
         
         <div class="grid-3">
             <div class="card" style="border-top: 3px solid var(--gold-accent);">
-                <h3>VPPEQ-1 Equalizer</h3>
-                <p>7-Band Parametric Equalizer mit 4 legendären analogen Konsolen-Kurven (SSL, Neve, API, Pultec) und harmonischer Obertonsättigung.</p>
+                <div class="card-img-container">
+                    <img src="pianoroll.png" alt="PIANOROLL">
+                </div>
+                <div class="card-content">
+                    <h3>VPPEQ-1 & PianoRoll</h3>
+                    <p>7-Band Parametric Equalizer und hochpräziser Note-Editor mit flexibler Noten-Skalierung und Direkt-Integration.</p>
+                </div>
             </div>
             <div class="card" style="border-top: 3px solid var(--gold-accent);">
-                <h3>VDC 2.0 Compressor</h3>
-                <p>Precision VCA/Opto Dynamic Compressor mit 60fps dynamischer Kennlinie, 4 Kompressions-Knie-Charakteristiken und analogen Fader-Reglern.</p>
+                <div class="card-img-container">
+                    <img src="v_pad_16.png" alt="V-PAD 16">
+                </div>
+                <div class="card-content">
+                    <h3>V-PAD 16 Sampler</h3>
+                    <p>Performance Pad Controller & Drum Sampler mit individuellen Bus-Zuweisungen und Echtzeit-Cutoff/Reso-Steuerung.</p>
+                </div>
             </div>
             <div class="card" style="border-top: 3px solid var(--gold-accent);">
-                <h3>VFPA 1.0 Analyser</h3>
-                <p>Real-Time Frequency & Phase Alignment Visualizer mit EBU R128 Loudness-Metering, Goniometer und präzisem Vektorskop.</p>
+                <div class="card-img-container">
+                    <img src="bus_consol.png" alt="DSP Suite">
+                </div>
+                <div class="card-content">
+                    <h3>VFPA 1.0 & Analyser</h3>
+                    <p>Real-Time Frequency & Phase Alignment Visualizer mit EBU R128 Loudness-Metering und analoger Sättigung.</p>
+                </div>
             </div>
         </div>
     </section>
