@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-CHANNEL STUDIO PRO 1.0 Signature - The Ultimate DAW & Immersive 3D Workstation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+        :root {
+            --bg-dark: #0B0E14;
+            --bg-card: #12161F;
+            --cyan-glow: #00D4FF;
+            --gold-accent: #D4AF37;
+            --text-main: #ECEFF1;
+            --text-muted: #94A3B8;
+            --border-color: #1E293B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Sektion mit edlem Kronen-Banner */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(11,14,20,0.92) 0%, rgba(18,22,31,0.95) 100%), 
+                        url('landing_v_channel_studio_pro.jpg') no-repeat center center/cover;
+            border-bottom: 2px solid var(--cyan-glow);
+        }
+
+        .hero-banner-img {
+            max-width: 1000px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #FFFFFF, var(--cyan-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0088B3, var(--cyan-glow));
+            color: #0B0E14;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--gold-accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold-accent);
+            color: #0B0E14;
+        }
+
+        /* Sektionen Allgemein (Nach unten Scrollen) */
+        .section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            font-size: 1.05rem;
+        }
+
+        /* Grid für Features / Module */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan-glow);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--cyan-glow);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Plugins / Native DSP Suite Sektion */
+        .plugins-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0F131D 100%);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer strong {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SEKTION MIT DEINEM KRONEN-ARTWORK -->
+    <header class="hero">
+        <!-- Dein hochgeladenes edles Banner-Bild -->
+        <img src="landing_v_channel_studio_pro.jpg" alt="V-CHANNEL STUDIO PRO 1.0 Signature" class="hero-banner-img">
+        
+        <h1>THE NEW EXPERIENCE IN MUSIC PRODUCTION</h1>
+        <p>Entdecke die weltweit erste DAW mit nativem 3D Immersive Audio, integriertem Slicing, Live-Turntablism und kompromissloser C++/JUCE Performance.</p>
+        
+        <div class="btn-group">
+            <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/v1.0.0/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary">14-Tage Free Trial Download</a>
+            <a href="#modules" class="btn btn-secondary">Module entdecken</a>
+        </div>
+    </header>
+
+    <!-- SEKTION 2: DIE HIGHLIGHT-MODULE (Nach unten scrollen) -->
+    <section class="section" id="modules">
+        <h2 class="section-title">Natives Workflow-Kraftwerk</h2>
+        <p class="section-subtitle">Entwickelt aus 26 Jahren Studio-Praxis und modernster DSP-Architektur.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <h3>V-SPH3RE 3D Immersive</h3>
+                <p>Natives 7.1.4 Immersive Bed und Binaurales Monitoring über das Woodworth-HRTF-Modell. Lass Spuren in 360° um den Kopf kreisen – ganz ohne externe Middleware.</p>
+            </div>
+            <div class="card">
+                <h3>V-CHOPPER Spatial Slicer</h3>
+                <p>Der welterste 3D-Slicer. Zerscheide Audio-Clips per Transienten-Erkennung, pitche stufenlos wie Kaugummi (−12 bis +12 st) und verteile Slices direkt im Raum.</p>
+            </div>
+            <div class="card">
+                <h3>V-SCRATCH LIVE Deck</h3>
+                <p>Echtes Turntablism direkt im Host. Latenzfreies Vinyl-Jogwheel, Crossfader, 8 Performance-Pads und 1-Click [ REC TO TIMELINE ] Aufzeichnung.</p>
+            </div>
+            <div class="card">
+                <h3>BEATCLOUD Community Vault</h3>
+                <p>16-Step Sequencer mit Multi-Out Routing und direktem, interaktivem .vbeat-Muster-Austausch direkt in deiner DAW.</p>
+            </div>
+            <div class="card">
+                <h3>FX BUS CONSOLE</h3>
+                <p>Schwebendes PopUp-Effekt-Rack für parallele Aux-Returns (Reverbs, Delays) mit Zonen-Fokus und nahtloser Taskleisten-Kopplung.</p>
+            </div>
+            <div class="card">
+                <h3>Score & PDF Export</h3>
+                <p>Verwandle polyphone MIDI-Clips mit einem Klick in klassische Partituren (Grand Staff) mit Violin- und Bassschlüssel und exportiere direkt nach A4 PDF.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKTION 3: DIE NATIVE DSP SUITE (Deine Plugins) -->
+    <section class="section plugins-section">
+        <h2 class="section-title">Powered by vir2ose DSP Suite</h2>
+        <p class="section-subtitle">Dieselbe kompromisslose analog gemodelte Audio-Mathematik treibt auch die internen Kanäle und Master-Inserts an.</p>
+        
+        <div class="grid-3">
+            <div class="card" style="border-top: 3px solid var(--gold-accent);">
+                <h3>VPPEQ-1 Equalizer</h3>
+                <p>7-Band Parametric Equalizer mit 4 legendären analogen Konsolen-Kurven (SSL, Neve, API, Pultec) und harmonischer Obertonsättigung.</p>
+            </div>
+            <div class="card" style="border-top: 3px solid var(--gold-accent);">
+                <h3>VDC 2.0 Compressor</h3>
+                <p>Precision VCA/Opto Dynamic Compressor mit 60fps dynamischer Kennlinie, 4 Kompressions-Knie-Charakteristiken und analogen Fader-Reglern.</p>
+            </div>
+            <div class="card" style="border-top: 3px solid var(--gold-accent);">
+                <h3>VFPA 1.0 Analyser</h3>
+                <p>Real-Time Frequency & Phase Alignment Visualizer mit EBU R128 Loudness-Metering, Goniometer und präzisem Vektorskop.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <strong>vir2oseSOUND Hannover</strong> • Waldemar Krucinski (Dipl. Audio Engineer HOFA). Alle Rechte vorbehalten.</p>
+        <p style="margin-top: 8px;">KVR Audio Developer Hub Verified • Buy it once, own it forever.</p>
+    </footer>
+
+</body>
+</html>
