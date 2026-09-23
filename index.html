@@ -1,20 +1,35 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V-CHANNEL STUDIO PRO 1.0 Signature - The Ultimate DAW & Immersive 3D Workstation</title>
+    
+    <!-- Scroll position fix: Guarantee the page always opens at the very top -->
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        if (window.location.hash) {
+            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+        window.scrollTo(0, 0);
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
 
         :root {
             --bg-dark: #0B0E14;
             --bg-card: #12161F;
+            --bg-card-hover: #161C27;
             --cyan-glow: #00D4FF;
             --gold-accent: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #FFE259 0%, #FFA751 100%);
             --text-main: #ECEFF1;
             --text-muted: #94A3B8;
             --border-color: #1E293B;
+            --badge-green: #10B981;
         }
 
         * {
@@ -23,26 +38,128 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
+            padding-top: 60px; /* Space for sticky navbar */
+        }
+
+        /* STICKY TOP NAVBAR */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(11, 14, 20, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-brand span {
+            color: var(--cyan-glow);
+        }
+
+        .nav-badge {
+            background: linear-gradient(90deg, #D4AF37, #FFA751);
+            color: #0B0E14;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan-glow);
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .lang-btn:hover {
+            color: #FFFFFF;
+        }
+
+        .lang-btn.active {
+            background: var(--cyan-glow);
+            color: #0B0E14;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
 
         /* Hero Sektion mit edlem Banner */
         .hero {
             position: relative;
             width: 100%;
-            min-height: 100vh;
+            min-height: calc(100vh - 60px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(11,14,20,0.92) 0%, rgba(18,22,31,0.95) 100%), 
+            padding: 40px 20px 60px;
+            background: linear-gradient(135deg, rgba(11,14,20,0.94) 0%, rgba(18,22,31,0.96) 100%), 
                         url('landing_v_channel_studio_pro.jpg') no-repeat center center/cover;
             border-bottom: 2px solid var(--cyan-glow);
         }
@@ -51,9 +168,14 @@
             max-width: 1000px;
             width: 100%;
             border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.25);
+            border: 1px solid rgba(0, 212, 255, 0.35);
             margin-bottom: 30px;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-banner-img:hover {
+            transform: scale(1.01);
         }
 
         .hero h1 {
@@ -67,9 +189,9 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 780px;
             margin-bottom: 35px;
         }
 
@@ -106,6 +228,18 @@
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
         }
 
+        .btn-gold {
+            background: linear-gradient(90deg, #B8860B, var(--gold-accent));
+            color: #0B0E14;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            border: none;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+        }
+
         .btn-secondary {
             background: transparent;
             color: var(--text-main);
@@ -126,7 +260,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 800;
             margin-bottom: 15px;
             color: #FFFFFF;
@@ -137,6 +271,9 @@
             color: var(--text-muted);
             margin-bottom: 60px;
             font-size: 1.05rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Grid für Features / Module mit Bildern */
@@ -153,12 +290,13 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--cyan-glow);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
         }
 
         .card-img-container {
@@ -166,6 +304,7 @@
             height: 200px;
             overflow: hidden;
             border-bottom: 1px solid var(--border-color);
+            background: #080A0F;
         }
 
         .card-img-container img {
@@ -206,39 +345,258 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+        /* EDITIONS & COMPARISON SECTION */
+        .editions-section {
+            background: linear-gradient(180deg, #0B0E14 0%, #0D121B 50%, #0B0E14 100%);
+            border-top: 1px solid var(--border-color);
+            padding: 100px 20px 80px;
+        }
+
+        .editions-cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
+        }
+
+        .edition-tier-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .edition-tier-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .edition-tier-card.pro {
+            border: 2px solid var(--gold-accent);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+            background: linear-gradient(180deg, #161D2B 0%, #11151F 100%);
+        }
+
+        .badge-recommended {
+            position: absolute;
+            top: -14px;
+            right: 25px;
+            background: var(--gold-gradient);
+            color: #0B0E14;
+            font-size: 0.72rem;
+            font-weight: 900;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
+        .tier-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .tier-header h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .edition-tier-card.lite .tier-header h3 {
+            color: var(--cyan-glow);
+        }
+
+        .edition-tier-card.pro .tier-header h3 {
+            background: linear-gradient(90deg, #FFE259, #FFA751);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tier-price {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .tier-highlights {
+            list-style: none;
+            margin-bottom: 35px;
+            flex-grow: 1;
+        }
+
+        .tier-highlights li {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.92rem;
+            color: var(--text-main);
+        }
+
+        .tier-highlights li span.icon {
+            color: var(--cyan-glow);
+            font-weight: 800;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .edition-tier-card.pro .tier-highlights li span.icon {
+            color: var(--gold-accent);
+        }
+
+        /* COMPARISON TABLE */
+        .table-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 700px;
+        }
+
+        .spec-table th, .spec-table td {
+            padding: 16px 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.92rem;
+        }
+
+        .spec-table th {
+            background: #0D121B;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 0.85rem;
+        }
+
+        .spec-table th:first-child {
+            color: var(--text-muted);
+            width: 38%;
+        }
+
+        .spec-table th:nth-child(2) {
+            color: var(--cyan-glow);
+            width: 31%;
+        }
+
+        .spec-table th:nth-child(3) {
+            color: var(--gold-accent);
+            width: 31%;
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .spec-table td:nth-child(3) {
+            background: rgba(212, 175, 55, 0.03);
+            border-left: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .spec-table tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .spec-table tr:hover td:nth-child(3) {
+            background-color: rgba(212, 175, 55, 0.06);
+        }
+
+        .status-check {
+            color: var(--badge-green);
+            font-weight: 700;
+        }
+
+        .status-lock {
+            color: #F59E0B;
+            font-weight: 600;
+        }
+
+        .status-gold {
+            color: var(--gold-accent);
+            font-weight: 700;
+        }
+
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             color: var(--text-muted);
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
+            background: #080A0F;
         }
 
         footer strong {
             color: var(--text-main);
         }
+
+        /* Responsive Navigation & Grid */
+        @media (max-width: 860px) {
+            .nav-links {
+                display: none; /* Mobile simplicity */
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .section {
+                padding: 60px 15px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- HERO SEKTION -->
-    <header class="hero">
-        <img src="image_867c17.jpg" alt="V-CHANNEL STUDIO PRO 1.0 Signature" class="hero-banner-img">
-        
-        <h1>THE NEW EXPERIENCE IN MUSIC PRODUCTION</h1>
-        <p>Entdecke die weltweit erste DAW mit nativem 3D Immersive Audio, integriertem Slicing, Live-Turntablism und kompromissloser C++/JUCE Performance.</p>
-        
-        <div class="btn-group">
-            <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary">14-Tage Free Trial Download</a>
-            <a href="#modules" class="btn btn-secondary">Module entdecken</a>
+    <!-- STICKY TOP NAVBAR -->
+    <header class="top-navbar">
+        <a href="#" class="nav-brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+            V-CHANNEL <span>STUDIO PRO</span>
+            <span class="nav-badge">Signature 1.0</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#modules" data-i18n="nav_modules">Modules</a></li>
+            <li><a href="#dsp" data-i18n="nav_dsp">DSP Suite</a></li>
+            <li><a href="#editions" data-i18n="nav_editions">Editions & Specs</a></li>
+            <li><a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" data-i18n="nav_download">Download Trial</a></li>
+        </ul>
+
+        <!-- Language Switcher: EN (Default) | DE | PL -->
+        <div class="lang-switch">
+            <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" id="btn-de" onclick="setLanguage('de')">DE</button>
+            <button class="lang-btn" id="btn-pl" onclick="setLanguage('pl')">PL</button>
         </div>
     </header>
 
+    <!-- HERO SEKTION -->
+    <section class="hero" id="top">
+        <img src="image_867c17.jpg" alt="V-CHANNEL STUDIO PRO 1.0 Signature" class="hero-banner-img">
+        
+        <h1 data-i18n="hero_title">THE NEW EXPERIENCE IN MUSIC PRODUCTION</h1>
+        <p data-i18n="hero_desc">Discover the world's first DAW with native 3D Immersive Audio, integrated Slicing, Live Turntablism, and uncompromising C++/JUCE performance.</p>
+        
+        <div class="btn-group">
+            <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary" data-i18n="btn_trial">14-Day Free Trial Download</a>
+            <a href="#editions" class="btn btn-secondary" data-i18n="btn_compare">Compare Editions</a>
+            <a href="#modules" class="btn btn-secondary" data-i18n="btn_explore">Explore Modules</a>
+        </div>
+    </section>
+
     <!-- SEKTION 2: MODULE MIT UI-SCREENSHOTS -->
     <section class="section" id="modules">
-        <h2 class="section-title">Natives Workflow-Kraftwerk</h2>
-        <p class="section-subtitle">Entwickelt aus 26 Jahren Studio-Praxis und modernster DSP-Architektur.</p>
+        <h2 class="section-title" data-i18n="sec_modules_title">Native Workflow Powerhouse</h2>
+        <p class="section-subtitle" data-i18n="sec_modules_sub">Forged from 26 years of studio expertise and cutting-edge DSP architecture.</p>
         
         <div class="grid-3">
             <!-- 1. V-SPH3RE -->
@@ -248,7 +606,7 @@
                 </div>
                 <div class="card-content">
                     <h3>V-SPH3RE 3D Immersive</h3>
-                    <p>Natives 7.1.4 Immersive Bed und Binaurales Monitoring über das Woodworth-HRTF-Modell. Lass Spuren in 360° um den Kopf kreisen – ganz ohne externe Middleware.</p>
+                    <p data-i18n="card_sphere_desc">Native 7.1.4 Immersive Bed and binaural monitoring via the Woodworth HRTF model. Rotate audio tracks 360° around the listener — zero external middleware required.</p>
                 </div>
             </div>
 
@@ -259,7 +617,7 @@
                 </div>
                 <div class="card-content">
                     <h3>V-CHOPPER Spatial Slicer</h3>
-                    <p>Der welterste 3D-Slicer. Zerscheide Audio-Clips per Transienten-Erkennung, pitche stufenlos wie Kaugummi (−12 bis +12 st) und verteile Slices direkt im Raum.</p>
+                    <p data-i18n="card_chopper_desc">The world's first 3D slicer. Slice audio clips via transient detection, pitch smoothly (−12 to +12 semitones), and position individual slices directly in 3D space.</p>
                 </div>
             </div>
 
@@ -270,7 +628,7 @@
                 </div>
                 <div class="card-content">
                     <h3>V-SCRATCH LIVE Deck</h3>
-                    <p>Echtes Turntablism direkt im Host. Latenzfreies Vinyl-Jogwheel, Crossfader, 8 Performance-Pads und 1-Click [ REC TO TIMELINE ] Aufzeichnung.</p>
+                    <p data-i18n="card_scratch_desc">True turntablism inside your DAW. Ultra-low latency vinyl jogwheel, crossfader, 8 performance pads, DJ MIDI controller mapping (Gemini GMX), and 1-Click [ REC TO TIMELINE ].</p>
                 </div>
             </div>
 
@@ -281,7 +639,7 @@
                 </div>
                 <div class="card-content">
                     <h3>BEATCLOUD Community Vault</h3>
-                    <p>16-Step Sequencer mit Multi-Out Routing und direktem, interaktivem .vbeat-Muster-Austausch direkt in deiner DAW.</p>
+                    <p data-i18n="card_beatcloud_desc">16-step sequencer with multi-out routing, 4 factory kits (Club 909, LoFi Retro, Organic, Urban Trap) and instant interactive .vbeat pattern sharing.</p>
                 </div>
             </div>
 
@@ -292,7 +650,7 @@
                 </div>
                 <div class="card-content">
                     <h3>FX BUS CONSOLE</h3>
-                    <p>Schwebendes PopUp-Effekt-Rack für parallele Aux-Returns (Reverbs, Delays) mit Zonen-Fokus und nahtloser Taskleisten-Kopplung.</p>
+                    <p data-i18n="card_bus_desc">Floating pop-up FX rack for parallel aux returns (reverbs, delays) with zone focusing and seamless taskbar integration.</p>
                 </div>
             </div>
 
@@ -303,16 +661,16 @@
                 </div>
                 <div class="card-content">
                     <h3>Score & PDF Export</h3>
-                    <p>Verwandle polyphone MIDI-Clips mit einem Klick in klassische Partituren (Grand Staff) mit Violin- und Bassschlüssel und exportiere direkt nach A4 PDF.</p>
+                    <p data-i18n="card_score_desc">Convert polyphonic MIDI clips with one click into classical notation (Grand Staff) with treble and bass clefs, and export directly to print-ready A4 PDF.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SEKTION 3: NATIVE DSP SUITE -->
-    <section class="section plugins-section">
-        <h2 class="section-title">Powered by vir2ose DSP Suite</h2>
-        <p class="section-subtitle">Dieselbe kompromisslose analog gemodelte Audio-Mathematik treibt auch die internen Kanäle und Master-Inserts an.</p>
+    <section class="section plugins-section" id="dsp">
+        <h2 class="section-title" data-i18n="sec_dsp_title">Powered by vir2ose DSP Suite</h2>
+        <p class="section-subtitle" data-i18n="sec_dsp_sub">The same uncompromising analog-modeled audio algorithms power the internal channels and master inserts.</p>
         
         <div class="grid-3">
             <div class="card" style="border-top: 3px solid var(--gold-accent);">
@@ -321,7 +679,7 @@
                 </div>
                 <div class="card-content">
                     <h3>VPPEQ-1 & PianoRoll</h3>
-                    <p>7-Band Parametric Equalizer und hochpräziser Note-Editor mit flexibler Noten-Skalierung und Direkt-Integration.</p>
+                    <p data-i18n="card_eq_desc">7-Band Parametric Equalizer featuring 4 analog curves (SSL, Neve, API, Pultec) alongside a high-precision Note Editor with dynamic note scaling.</p>
                 </div>
             </div>
             <div class="card" style="border-top: 3px solid var(--gold-accent);">
@@ -330,7 +688,7 @@
                 </div>
                 <div class="card-content">
                     <h3>V-PAD 16 Sampler</h3>
-                    <p>Performance Pad Controller & Drum Sampler mit individuellen Bus-Zuweisungen und Echtzeit-Cutoff/Reso-Steuerung.</p>
+                    <p data-i18n="card_vpad_desc">Performance Pad Controller & Drum Sampler with individual bus routing, velocity curves, and real-time cutoff/resonance filtering.</p>
                 </div>
             </div>
             <div class="card" style="border-top: 3px solid var(--gold-accent);">
@@ -339,17 +697,357 @@
                 </div>
                 <div class="card-content">
                     <h3>VFPA 1.0 & Analyser</h3>
-                    <p>Real-Time Frequency & Phase Alignment Visualizer mit EBU R128 Loudness-Metering und analoger Sättigung.</p>
+                    <p data-i18n="card_analyser_desc">Real-Time Frequency & Phase Alignment Visualizer with EBU R128 Loudness-Metering, stereo goniometer, and analog harmonic saturation.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SEKTION 4: EDITIONS & SPECIFICATIONS (VERGLEICH LITE VS PRO SIGNATURE) -->
+    <section class="section editions-section" id="editions">
+        <h2 class="section-title" data-i18n="sec_editions_title">Editions & Specifications</h2>
+        <p class="section-subtitle" data-i18n="sec_editions_sub">Choose the edition that fits your workflow. From a rock-solid starter setup to the ultimate unbounded 3D Signature mastering workstation.</p>
+        
+        <!-- Two Tier Action Cards -->
+        <div class="editions-cards-wrapper">
+            <!-- Lite Card -->
+            <div class="edition-tier-card lite">
+                <div class="tier-header">
+                    <h3>V-CHANNEL Lite</h3>
+                    <div class="tier-price" data-i18n="lite_tier_subtitle">Starter & 14-Day Evaluation</div>
+                </div>
+                <ul class="tier-highlights">
+                    <li><span class="icon">✓</span> <strong data-i18n="spec_tracks_label">Audio Tracks:</strong>&nbsp;<span data-i18n="spec_lite_tracks">Up to 16 Tracks</span></li>
+                    <li><span class="icon">✓</span> <strong data-i18n="spec_busses_label">Subgroups / Aux:</strong>&nbsp;<span data-i18n="spec_lite_busses">2 Busses</span></li>
+                    <li><span class="icon">✓</span> <strong data-i18n="spec_kits_label">BEATCLOUD Kits:</strong>&nbsp;<span data-i18n="spec_lite_kits">Factory Kit 01_Club_909</span></li>
+                    <li><span class="icon">✓</span> <strong data-i18n="spec_3d_label">V-SPH3RE 3D:</strong>&nbsp;<span data-i18n="spec_lite_3d">Binaural 3D Headphone</span></li>
+                    <li><span class="icon">✓</span> <strong data-i18n="spec_scratch_label">V-SCRATCH LIVE:</strong>&nbsp;<span data-i18n="spec_scratch_val">Full Turntablism & GMX MIDI</span></li>
+                    <li><span class="icon">✓</span> <strong data-i18n="spec_dsp_label">vir2ose DSP:</strong>&nbsp;<span data-i18n="spec_dsp_val">Full Suite (VPPEQ-1, VDC, VFPA)</span></li>
+                </ul>
+                <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary" style="text-align: center;" data-i18n="btn_dl_lite">Download Free Trial</a>
+            </div>
+
+            <!-- Pro Signature Card -->
+            <div class="edition-tier-card pro">
+                <div class="badge-recommended" data-i18n="badge_flagship">Flagship Edition</div>
+                <div class="tier-header">
+                    <h3>PRO Signature 1.0</h3>
+                    <div class="tier-price" data-i18n="pro_tier_subtitle">Lifetime VIP License • Waldemar Krucinski</div>
+                </div>
+                <ul class="tier-highlights">
+                    <li><span class="icon">★</span> <strong data-i18n="spec_tracks_label">Audio Tracks:</strong>&nbsp;<span data-i18n="spec_pro_tracks">Unlimited (Up to 10,000)</span></li>
+                    <li><span class="icon">★</span> <strong data-i18n="spec_busses_label">Subgroups / Aux:</strong>&nbsp;<span data-i18n="spec_pro_busses">Unlimited (Up to 1,000)</span></li>
+                    <li><span class="icon">★</span> <strong data-i18n="spec_kits_label">BEATCLOUD Kits:</strong>&nbsp;<span data-i18n="spec_pro_kits">All 4 Kits (909, LoFi, Organic, Trap)</span></li>
+                    <li><span class="icon">★</span> <strong data-i18n="spec_3d_label">V-SPH3RE 3D:</strong>&nbsp;<span data-i18n="spec_pro_3d">Full 7.1.4 Dolby Atmos Bed & 5.1</span></li>
+                    <li><span class="icon">★</span> <strong data-i18n="spec_scratch_label">V-SCRATCH LIVE:</strong>&nbsp;<span data-i18n="spec_scratch_val">Full Turntablism & GMX MIDI</span></li>
+                    <li><span class="icon">★</span> <strong data-i18n="spec_dsp_label">vir2ose DSP:</strong>&nbsp;<span data-i18n="spec_dsp_val">Full Suite (VPPEQ-1, VDC, VFPA)</span></li>
+                </ul>
+                <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-gold" style="text-align: center;" data-i18n="btn_dl_pro">Download Pro Signature</a>
+            </div>
+        </div>
+
+        <!-- Detailed Feature Comparison Table -->
+        <div class="table-container">
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="th_feature">Feature / Architecture</th>
+                        <th>V-CHANNEL Lite</th>
+                        <th>👑 PRO Signature Edition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong data-i18n="row_tracks">Max Audio Tracks</strong></td>
+                        <td>16 Tracks (Starter)</td>
+                        <td class="status-gold"><strong>Unlimited</strong> (up to 10,000 tracks)</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_busses">Subgroups / Aux Busses</strong></td>
+                        <td>2 Busses</td>
+                        <td class="status-gold"><strong>Unlimited</strong> (up to 1,000 busses)</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_kits">BEATCLOUD Drum-Kits</strong></td>
+                        <td>1 Factory Kit (01_Club_909)</td>
+                        <td class="status-gold"><strong>All 4 Kits</strong> (Club 909, LoFi, Organic, Trap)</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_3d">V-SPH3RE 3D Spatial Audio</strong></td>
+                        <td>Binaural 3D Stereo (Headphones)</td>
+                        <td class="status-gold"><strong>Full 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_scratch">V-SCRATCH LIVE Turntablism</strong></td>
+                        <td class="status-check">✓ Fully Enabled (Jogwheel, Pads, Fader)</td>
+                        <td class="status-gold">✓ Fully Enabled + Hardware DJ Controller Mapping</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_gmx">Gemini GMX MIDI DJ Controller</strong></td>
+                        <td class="status-check">✓ Supported (Plug &amp; Play)</td>
+                        <td class="status-gold">✓ Bidirectional MIDI LED Feedback &amp; Scratch</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_chopper">V-CHOPPER 3D Spatial Slicer</strong></td>
+                        <td class="status-check">✓ Fully Enabled (−12 to +12 st Pitch)</td>
+                        <td class="status-gold">✓ Fully Enabled + 3D Slice Panning</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_dsp">vir2ose DSP Mastering Suite</strong></td>
+                        <td class="status-check">✓ VPPEQ-1, VDC 2.0 &amp; VFPA 1.0</td>
+                        <td class="status-gold">✓ Unrestricted Master Bus Mastering Chain</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_score">Score &amp; PDF Export</strong></td>
+                        <td class="status-check">✓ Grand Staff Notation &amp; PDF</td>
+                        <td class="status-gold">✓ Full Print-Ready Score Generation</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_engine">Audio Engine &amp; Performance</strong></td>
+                        <td>64-Bit Float, ASIO / WASAPI / SSL</td>
+                        <td class="status-gold">64-Bit Float, Zero-Latency C++/JUCE Core</td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="row_license">License Type</strong></td>
+                        <td>14-Day Free Evaluation</td>
+                        <td class="status-gold"><strong>Signature Lifetime VIP License</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 <strong>vir2oseSOUND Hannover</strong> • Waldemar Krucinski (Dipl. Audio Engineer HOFA). Alle Rechte vorbehalten.</p>
-        <p style="margin-top: 8px;">KVR Audio Developer Hub Verified • Buy it once, own it forever.</p>
+        <p>&copy; 2026 <strong>vir2oseSOUND Hannover</strong> • Waldemar Krucinski (Dipl. Audio Engineer HOFA). <span data-i18n="footer_rights">All rights reserved.</span></p>
+        <p style="margin-top: 8px;" data-i18n="footer_sub">KVR Audio Developer Hub Verified • Buy it once, own it forever.</p>
     </footer>
 
+    <!-- MULTILINGUAL DICTIONARY (EN Default, DE, PL) & SCROLL LOGIC -->
+    <script>
+        const i18n = {
+            en: {
+                nav_modules: "Modules",
+                nav_dsp: "DSP Suite",
+                nav_editions: "Editions & Specs",
+                nav_download: "Download Trial",
+                hero_title: "THE NEW EXPERIENCE IN MUSIC PRODUCTION",
+                hero_desc: "Discover the world's first DAW with native 3D Immersive Audio, integrated Slicing, Live Turntablism, and uncompromising C++/JUCE performance.",
+                btn_trial: "14-Day Free Trial Download",
+                btn_compare: "Compare Editions",
+                btn_explore: "Explore Modules",
+                sec_modules_title: "Native Workflow Powerhouse",
+                sec_modules_sub: "Forged from 26 years of studio expertise and cutting-edge DSP architecture.",
+                card_sphere_desc: "Native 7.1.4 Immersive Bed and binaural monitoring via the Woodworth HRTF model. Rotate audio tracks 360° around the listener — zero external middleware required.",
+                card_chopper_desc: "The world's first 3D slicer. Slice audio clips via transient detection, pitch smoothly (−12 to +12 semitones), and position individual slices directly in 3D space.",
+                card_scratch_desc: "True turntablism inside your DAW. Ultra-low latency vinyl jogwheel, crossfader, 8 performance pads, DJ MIDI controller mapping (Gemini GMX), and 1-Click [ REC TO TIMELINE ].",
+                card_beatcloud_desc: "16-step sequencer with multi-out routing, 4 factory kits (Club 909, LoFi Retro, Organic, Urban Trap) and instant interactive .vbeat pattern sharing.",
+                card_bus_desc: "Floating pop-up FX rack for parallel aux returns (reverbs, delays) with zone focusing and seamless taskbar integration.",
+                card_score_desc: "Convert polyphonic MIDI clips with one click into classical notation (Grand Staff) with treble and bass clefs, and export directly to print-ready A4 PDF.",
+                sec_dsp_title: "Powered by vir2ose DSP Suite",
+                sec_dsp_sub: "The same uncompromising analog-modeled audio algorithms power the internal channels and master inserts.",
+                card_eq_desc: "7-Band Parametric Equalizer featuring 4 analog curves (SSL, Neve, API, Pultec) alongside a high-precision Note Editor with dynamic note scaling.",
+                card_vpad_desc: "Performance Pad Controller & Drum Sampler with individual bus routing, velocity curves, and real-time cutoff/resonance filtering.",
+                card_analyser_desc: "Real-Time Frequency & Phase Alignment Visualizer with EBU R128 Loudness-Metering, stereo goniometer, and analog harmonic saturation.",
+                sec_editions_title: "Editions & Specifications",
+                sec_editions_sub: "Choose the edition that fits your workflow. From a rock-solid starter setup to the ultimate unbounded 3D Signature mastering workstation.",
+                lite_tier_subtitle: "Starter & 14-Day Evaluation",
+                pro_tier_subtitle: "Lifetime VIP License • Waldemar Krucinski",
+                badge_flagship: "Flagship Edition",
+                spec_tracks_label: "Audio Tracks:",
+                spec_busses_label: "Subgroups / Aux:",
+                spec_kits_label: "BEATCLOUD Kits:",
+                spec_3d_label: "V-SPH3RE 3D:",
+                spec_scratch_label: "V-SCRATCH LIVE:",
+                spec_dsp_label: "vir2ose DSP:",
+                spec_lite_tracks: "Up to 16 Tracks",
+                spec_pro_tracks: "Unlimited (Up to 10,000)",
+                spec_lite_busses: "2 Busses",
+                spec_pro_busses: "Unlimited (Up to 1,000)",
+                spec_lite_kits: "Factory Kit 01_Club_909",
+                spec_pro_kits: "All 4 Kits (909, LoFi, Organic, Trap)",
+                spec_lite_3d: "Binaural 3D Headphone",
+                spec_pro_3d: "Full 7.1.4 Dolby Atmos Bed & 5.1",
+                spec_scratch_val: "Full Turntablism & GMX MIDI",
+                spec_dsp_val: "Full Suite (VPPEQ-1, VDC, VFPA)",
+                btn_dl_lite: "Download Free Trial",
+                btn_dl_pro: "Download Pro Signature",
+                th_feature: "Feature / Architecture",
+                row_tracks: "Max Audio Tracks",
+                row_busses: "Subgroups / Aux Busses",
+                row_kits: "BEATCLOUD Drum-Kits",
+                row_3d: "V-SPH3RE 3D Spatial Audio",
+                row_scratch: "V-SCRATCH LIVE Turntablism",
+                row_gmx: "Gemini GMX MIDI DJ Controller",
+                row_chopper: "V-CHOPPER 3D Spatial Slicer",
+                row_dsp: "vir2ose DSP Mastering Suite",
+                row_score: "Score & PDF Export",
+                row_engine: "Audio Engine & Performance",
+                row_license: "License Type",
+                footer_rights: "All rights reserved.",
+                footer_sub: "KVR Audio Developer Hub Verified • Buy it once, own it forever."
+            },
+            de: {
+                nav_modules: "Module",
+                nav_dsp: "DSP Suite",
+                nav_editions: "Editionen & Specs",
+                nav_download: "Testversion laden",
+                hero_title: "DIE NEUE ERFAHRUNG IN DER MUSIKPRODUKTION",
+                hero_desc: "Entdecke die weltweit erste DAW mit nativem 3D Immersive Audio, integriertem Slicing, Live-Turntablism und kompromissloser C++/JUCE Performance.",
+                btn_trial: "14-Tage Free Trial Download",
+                btn_compare: "Editionen vergleichen",
+                btn_explore: "Module entdecken",
+                sec_modules_title: "Natives Workflow-Kraftwerk",
+                sec_modules_sub: "Entwickelt aus 26 Jahren Studio-Praxis und modernster DSP-Architektur.",
+                card_sphere_desc: "Natives 7.1.4 Immersive Bed und Binaurales Monitoring über das Woodworth-HRTF-Modell. Lass Spuren in 360° um den Kopf kreisen – ganz ohne externe Middleware.",
+                card_chopper_desc: "Der welterste 3D-Slicer. Zerscheide Audio-Clips per Transienten-Erkennung, pitche stufenlos wie Kaugummi (−12 bis +12 st) und verteile Slices direkt im Raum.",
+                card_scratch_desc: "Echtes Turntablism direkt im Host. Latenzfreies Vinyl-Jogwheel, Crossfader, 8 Performance-Pads, DJ-Controller-Anbindung (Gemini GMX) und 1-Click [ REC TO TIMELINE ].",
+                card_beatcloud_desc: "16-Step Sequencer mit Multi-Out Routing, 4 Factory-Kits (Club 909, LoFi Retro, Organic, Urban Trap) und direktem .vbeat Muster-Austausch.",
+                card_bus_desc: "Schwebendes PopUp-Effekt-Rack für parallele Aux-Returns (Reverbs, Delays) mit Zonen-Fokus und nahtloser Taskleisten-Kopplung.",
+                card_score_desc: "Verwandle polyphone MIDI-Clips mit einem Klick in klassische Partituren (Grand Staff) mit Violin- und Bassschlüssel und exportiere direkt nach A4 PDF.",
+                sec_dsp_title: "Powered by vir2ose DSP Suite",
+                sec_dsp_sub: "Dieselbe kompromisslose analog gemodelte Audio-Mathematik treibt auch die internen Kanäle und Master-Inserts an.",
+                card_eq_desc: "7-Band Parametric Equalizer mit 4 analogen Konsolen-Kurven (SSL, Neve, API, Pultec) und hochpräziser Note-Editor mit Noten-Skalierung.",
+                card_vpad_desc: "Performance Pad Controller & Drum Sampler mit individuellen Bus-Zuweisungen und Echtzeit-Cutoff/Reso-Steuerung.",
+                card_analyser_desc: "Real-Time Frequency & Phase Alignment Visualizer mit EBU R128 Loudness-Metering, Goniometer und analoger Sättigung.",
+                sec_editions_title: "Editionen & Spezifikationen",
+                sec_editions_sub: "Wähle die Edition, die perfekt zu deinem Workflow passt. Vom soliden Einstieg bis zur grenzenlosen 3D Signature Mastering-Workstation.",
+                lite_tier_subtitle: "Starter & 14-Tage Testversion",
+                pro_tier_subtitle: "Lifetime VIP Lizenz • Waldemar Krucinski",
+                badge_flagship: "Flaggschiff Edition",
+                spec_tracks_label: "Audiospuren:",
+                spec_busses_label: "Subgruppen / Aux:",
+                spec_kits_label: "BEATCLOUD Kits:",
+                spec_3d_label: "V-SPH3RE 3D:",
+                spec_scratch_label: "V-SCRATCH LIVE:",
+                spec_dsp_label: "vir2ose DSP:",
+                spec_lite_tracks: "Bis zu 16 Spuren",
+                spec_pro_tracks: "Unbegrenzt (bis zu 10.000)",
+                spec_lite_busses: "2 Busse",
+                spec_pro_busses: "Unbegrenzt (bis zu 1.000)",
+                spec_lite_kits: "Factory Kit 01_Club_909",
+                spec_pro_kits: "Alle 4 Kits (909, LoFi, Organic, Trap)",
+                spec_lite_3d: "Binaurales 3D Stereo (Kopfhörer)",
+                spec_pro_3d: "Volles 7.1.4 Atmos Bed & 5.1",
+                spec_scratch_val: "Voll verfügbar + GMX MIDI",
+                spec_dsp_val: "Volle Suite (VPPEQ-1, VDC, VFPA)",
+                btn_dl_lite: "Kostenlose Testversion",
+                btn_dl_pro: "Pro Signature laden",
+                th_feature: "Feature / Architektur",
+                row_tracks: "Max. Audiospuren",
+                row_busses: "Subgruppen / Aux-Busse",
+                row_kits: "BEATCLOUD Drum-Kits",
+                row_3d: "V-SPH3RE 3D Spatial Audio",
+                row_scratch: "V-SCRATCH LIVE Turntablism",
+                row_gmx: "Gemini GMX MIDI DJ-Controller",
+                row_chopper: "V-CHOPPER Spatial Slicer",
+                row_dsp: "vir2ose DSP Mastering Suite",
+                row_score: "Partitur & PDF Export",
+                row_engine: "Audio Engine & Performance",
+                row_license: "Lizenzmodell",
+                footer_rights: "Alle Rechte vorbehalten.",
+                footer_sub: "KVR Audio Developer Hub Verifiziert • Einmal kaufen, für immer besitzen."
+            },
+            pl: {
+                nav_modules: "Moduły",
+                nav_dsp: "Pakiet DSP",
+                nav_editions: "Wersje i Specyfikacja",
+                nav_download: "Pobierz Wersję",
+                hero_title: "NOWE DOŚWIADCZENIE W PRODUKCJI MUZYCZNEJ",
+                hero_desc: "Odkryj pierwszą na świecie stację roboczą DAW z natywnym dźwiękiem immersyjnym 3D, zintegrowanym slicerem, turntablizmem na żywo i bezkompromisową wydajnością C++/JUCE.",
+                btn_trial: "Pobierz 14-dniowy Free Trial",
+                btn_compare: "Porównaj Wersje",
+                btn_explore: "Odkryj Moduły",
+                sec_modules_title: "Natywna Potęga Przepływu Pracy",
+                sec_modules_sub: "Zbudowane na bazie 26 lat doświadczenia studyjnego i najnowocześniejszej architektury DSP.",
+                card_sphere_desc: "Natywna matryca 7.1.4 Immersive Bed oraz binauralny odsłuch HRTF Woodwortha. Obracaj ścieżki w 360° wokół głowy bez zewnętrznego oprogramowania.",
+                card_chopper_desc: "Pierwszy na świecie slicer 3D. Tnij pliki audio detekcją transjentów, moduluj wysokość (−12 do +12 półtonów) i rozmieszczaj próbki w przestrzeni 3D.",
+                card_scratch_desc: "Prawdziwy turntablizm bezpośrednio w stacji roboczej. Bezlatencyjne koło jog, crossfader, 8 padów, obsługa kontrolerów DJ (Gemini GMX) i 1-Click [ REC TO TIMELINE ].",
+                card_beatcloud_desc: "16-krokowy sekwencer z routingiem multi-out, 4 fabrycznymi zestawami (Club 909, LoFi, Organic, Trap) i błyskawiczną wymianą wzorców .vbeat.",
+                card_bus_desc: "Pływający pop-up rack efektowy dla równoległych szyn Aux (reverby, delaye) z inteligentnym dokowaniem do paska zadań.",
+                card_score_desc: "Przekształć polifoniczne klipy MIDI 1 kliknięciem w klasyczny zapis nutowy (Grand Staff) i eksportuj bezpośrednio do formatu A4 PDF.",
+                sec_dsp_title: "Napędzane przez vir2ose DSP Suite",
+                sec_dsp_sub: "Te same bezkompromisowe algorytmy modelowania analogowego zasilają kanały miksera i szynę Master.",
+                card_eq_desc: "7-pasmowy korektor parametryczny z 4 analogowymi krzywymi (SSL, Neve, API, Pultec) oraz precyzyjny edytor PianoRoll.",
+                card_vpad_desc: "Kontroler padów i sampler perkusyjny z przypisywaniem do szyn i regulacją filtrów w czasie rzeczywistym.",
+                card_analyser_desc: "Analizator częstotliwości i fazy w czasie rzeczywistym z pomiarem głośności EBU R128 i analogową saturacją.",
+                sec_editions_title: "Wersje i Porównanie Specyfikacji",
+                sec_editions_sub: "Wybierz wersję idealną dla swojego workflow — od solidnego startu po nielimitowaną stację masteringową 3D Signature.",
+                lite_tier_subtitle: "Wersja Startowa & 14-dniowy Test",
+                pro_tier_subtitle: "Wieczysta Licencja VIP • Waldemar Kruciński",
+                badge_flagship: "Wersja Flagowa",
+                spec_tracks_label: "Ścieżki Audio:",
+                spec_busses_label: "Podgrupy / Aux:",
+                spec_kits_label: "Zestawy BEATCLOUD:",
+                spec_3d_label: "V-SPH3RE 3D:",
+                spec_scratch_label: "V-SCRATCH LIVE:",
+                spec_dsp_label: "Pakiet DSP vir2ose:",
+                spec_lite_tracks: "Do 16 ścieżek",
+                spec_pro_tracks: "Bez limitu (do 10 000)",
+                spec_lite_busses: "2 szyny",
+                spec_pro_busses: "Bez limitu (do 1 000)",
+                spec_lite_kits: "Zestaw fabryczny 01_Club_909",
+                spec_pro_kits: "Wszystkie 4 zestawy (909, LoFi, Organic, Trap)",
+                spec_lite_3d: "Binauralny 3D (słuchawki)",
+                spec_pro_3d: "Pełne 7.1.4 Dolby Atmos Bed & 5.1",
+                spec_scratch_val: "Pełny turntablizm + obsługa GMX",
+                spec_dsp_val: "Pełny pakiet (VPPEQ-1, VDC, VFPA)",
+                btn_dl_lite: "Pobierz Wersję Próbną",
+                btn_dl_pro: "Pobierz Pro Signature",
+                th_feature: "Funkcja / Architektura",
+                row_tracks: "Maks. Ścieżki Audio",
+                row_busses: "Podgrupy / Szyny Aux",
+                row_kits: "Zestawy perkusyjne BEATCLOUD",
+                row_3d: "Dźwięk Przestrzenny V-SPH3RE 3D",
+                row_scratch: "Turntablizm V-SCRATCH LIVE",
+                row_gmx: "Kontroler DJ Gemini GMX MIDI",
+                row_chopper: "Slicer Przestrzenny V-CHOPPER",
+                row_dsp: "Pakiet Masteringowy vir2ose DSP",
+                row_score: "Partytura i Eksport do PDF",
+                row_engine: "Silnik Dźwiękowy & Wydajność",
+                row_license: "Typ Licencji",
+                footer_rights: "Wszelkie prawa zastrzeżone.",
+                footer_sub: "Zweryfikowany deweloper KVR Audio • Kupujesz raz, posiadasz na zawsze."
+            }
+        };
+
+        function setLanguage(lang) {
+            if (!i18n[lang]) lang = 'en';
+
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + lang);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            try {
+                localStorage.setItem('vchannel_lang', lang);
+            } catch (e) {}
+        }
+
+        // On Load: Default to English, or use stored preference
+        window.addEventListener('DOMContentLoaded', () => {
+            let savedLang = 'en';
+            try {
+                const stored = localStorage.getItem('vchannel_lang');
+                if (stored && i18n[stored]) savedLang = stored;
+            } catch (e) {}
+            setLanguage(savedLang);
+
+            // Double check scroll top on DOM ready
+            if (window.location.hash) {
+                history.replaceState(null, document.title, window.location.pathname + window.location.search);
+            }
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        });
+    </script>
 </body>
 </html>
