@@ -16,6 +16,9 @@
         window.scrollTo(0, 0);
     </script>
 
+    <!-- PADDLE.JS INLINE CHECKOUT SCRIPT -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
 
@@ -743,7 +746,7 @@
                 <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary" style="text-align: center;" data-i18n="btn_dl_lite">Download Free Trial</a>
             </div>
 
-            <!-- Pro Signature Card (Mit Paddle-Checkout-Link verknüpft) -->
+            <!-- Pro Signature Card (Mit integriertem Paddle Checkout) -->
             <div class="edition-tier-card pro">
                 <div class="badge-recommended" data-i18n="badge_flagship">Flagship Edition</div>
                 <div class="tier-header">
@@ -758,8 +761,8 @@
                     <li><span class="icon">★</span> <strong data-i18n="spec_scratch_label">V-SCRATCH LIVE:</strong>&nbsp;<span data-i18n="spec_scratch_val">Full Turntablism & GMX MIDI</span></li>
                     <li><span class="icon">★</span> <strong data-i18n="spec_dsp_label">vir2ose DSP:</strong>&nbsp;<span data-i18n="spec_dsp_val">Full Suite (VPPEQ-1, VDC, VFPA)</span></li>
                 </ul>
-                <!-- PADDLE CHECKOUT LINK -->
-                <a href="https://checkout.paddle.com/checkout/custom?prices=pri_01m38cs5wzk4zrsys7hJ2qhw" class="btn btn-gold" style="text-align: center;" data-i18n="btn_dl_pro">Buy Pro Signature (€149)</a>
+                <!-- PADDLE CHECKOUT TRIGGER BUTTON -->
+                <button onclick="openCheckout()" class="btn btn-gold" style="text-align: center; width: 100%;" data-i18n="btn_dl_pro">Buy Pro Signature (€149)</button>
             </div>
         </div>
 
@@ -839,6 +842,25 @@
         <p>&copy; 2026 <strong>vir2oseSOUND Hannover</strong> • Waldemar Krucinski (Dipl. Audio Engineer HOFA). <span data-i18n="footer_rights">All rights reserved.</span></p>
         <p style="margin-top: 8px;" data-i18n="footer_sub">KVR Audio Developer Hub Verified • Buy it once, own it forever.</p>
     </footer>
+
+    <!-- PADDLE INITIALIZATION & CHECKOUT LOGIK -->
+    <script>
+        // Paddle mit deinem echten Live-Token initialisieren
+        Paddle.Initialize({ 
+            token: 'live_c448056df1b856fe9ffc9733d56' 
+        });
+
+        function openCheckout() {
+            Paddle.Checkout.open({
+                items: [
+                    {
+                        priceId: 'pri_01m38cs5wzk4zrsys7hJ2qhw',
+                        quantity: 1
+                    }
+                ]
+            });
+        }
+    </script>
 
     <!-- MULTILINGUAL DICTIONARY (EN Default, DE, PL) & SCROLL LOGIC -->
     <script>
