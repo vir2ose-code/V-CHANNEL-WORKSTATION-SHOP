@@ -51,7 +51,7 @@
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
-            padding-top: 60px; /* Space for sticky navbar */
+            padding-top: 60px;
         }
 
         /* STICKY TOP NAVBAR */
@@ -154,7 +154,7 @@
             box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
 
-        /* Hero Sektion mit edlem Banner */
+        /* Hero Sektion */
         .hero {
             position: relative;
             width: 100%;
@@ -237,13 +237,13 @@
         .btn-gold {
             background: linear-gradient(90deg, #B8860B, var(--gold-accent));
             color: #0B0E14;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
             border: none;
         }
 
         .btn-gold:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.7);
         }
 
         .btn-secondary {
@@ -351,114 +351,92 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* EDITIONS & COMPARISON SECTION */
-        .editions-section {
+        /* FLAGSHIP PRICING & SPECS SECTION */
+        .pricing-section {
             background: linear-gradient(180deg, #0B0E14 0%, #0D121B 50%, #0B0E14 100%);
             border-top: 1px solid var(--border-color);
             padding: 100px 20px 80px;
         }
 
-        .editions-cards-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
+        .pricing-card-wrapper {
+            max-width: 800px;
             margin: 0 auto 60px;
         }
 
-        .edition-tier-card {
-            background: var(--bg-card);
+        .edition-tier-card.pro {
+            background: linear-gradient(180deg, #161D2B 0%, #11151F 100%);
+            border: 2px solid var(--gold-accent);
             border-radius: 12px;
-            padding: 35px 30px;
+            padding: 45px 40px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
             display: flex;
             flex-direction: column;
-            position: relative;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .edition-tier-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .edition-tier-card.pro {
-            border: 2px solid var(--gold-accent);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
-            background: linear-gradient(180deg, #161D2B 0%, #11151F 100%);
         }
 
         .badge-recommended {
             position: absolute;
-            top: -14px;
-            right: 25px;
+            top: -16px;
+            right: 35px;
             background: var(--gold-gradient);
             color: #0B0E14;
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             font-weight: 900;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
         .tier-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 20px;
-            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .tier-header h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .edition-tier-card.lite .tier-header h3 {
-            color: var(--cyan-glow);
-        }
-
-        .edition-tier-card.pro .tier-header h3 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
             background: linear-gradient(90deg, #FFE259, #FFA751);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .tier-price {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            font-weight: 500;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            font-weight: 600;
         }
 
         .tier-highlights {
             list-style: none;
-            margin-bottom: 35px;
-            flex-grow: 1;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
         }
 
         .tier-highlights li {
-            margin-bottom: 14px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: var(--text-main);
         }
 
         .tier-highlights li span.icon {
-            color: var(--cyan-glow);
+            color: var(--gold-accent);
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1;
         }
 
-        .edition-tier-card.pro .tier-highlights li span.icon {
-            color: var(--gold-accent);
-        }
-
-        /* COMPARISON TABLE */
+        /* SPECIFICATION TABLE */
         .table-container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -471,13 +449,13 @@
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            min-width: 700px;
+            min-width: 650px;
         }
 
         .spec-table th, .spec-table td {
-            padding: 16px 22px;
+            padding: 16px 24px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            font-size: 0.92rem;
+            font-size: 0.95rem;
         }
 
         .spec-table th {
@@ -486,46 +464,26 @@
             text-transform: uppercase;
             letter-spacing: 0.8px;
             font-size: 0.85rem;
+            color: var(--gold-accent);
         }
 
         .spec-table th:first-child {
             color: var(--text-muted);
-            width: 38%;
+            width: 40%;
         }
 
-        .spec-table th:nth-child(2) {
-            color: var(--cyan-glow);
-            width: 31%;
-        }
-
-        .spec-table th:nth-child(3) {
-            color: var(--gold-accent);
-            width: 31%;
-            background: rgba(212, 175, 55, 0.08);
-            border-left: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .spec-table td:nth-child(3) {
-            background: rgba(212, 175, 55, 0.03);
-            border-left: 1px solid rgba(212, 175, 55, 0.15);
+        .spec-table td:nth-child(2) {
+            color: var(--text-main);
+            background: rgba(212, 175, 55, 0.02);
+            border-left: 1px solid rgba(212, 175, 55, 0.12);
         }
 
         .spec-table tr:hover td {
             background-color: rgba(255, 255, 255, 0.02);
         }
 
-        .spec-table tr:hover td:nth-child(3) {
+        .spec-table tr:hover td:nth-child(2) {
             background-color: rgba(212, 175, 55, 0.06);
-        }
-
-        .status-check {
-            color: var(--badge-green);
-            font-weight: 700;
-        }
-
-        .status-lock {
-            color: #F59E0B;
-            font-weight: 600;
         }
 
         .status-gold {
@@ -547,10 +505,21 @@
             color: var(--text-main);
         }
 
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--cyan-glow);
+        }
+
         /* Responsive Navigation & Grid */
         @media (max-width: 860px) {
             .nav-links {
-                display: none; /* Mobile simplicity */
+                display: none;
             }
             .hero h1 {
                 font-size: 1.9rem;
@@ -571,6 +540,9 @@
             .top-navbar {
                 padding: 0 15px;
             }
+            .tier-header h3 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -586,7 +558,8 @@
         <ul class="nav-links">
             <li><a href="#modules" data-i18n="nav_modules">Modules</a></li>
             <li><a href="#dsp" data-i18n="nav_dsp">DSP Suite</a></li>
-            <li><a href="#editions" data-i18n="nav_editions">Editions & Specs</a></li>
+            <li><a href="#specs" data-i18n="nav_specs">Specifications</a></li>
+            <li><a href="#pricing" data-i18n="nav_pricing">VIP License</a></li>
             <li><a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" data-i18n="nav_download">Download Trial</a></li>
         </ul>
 
@@ -607,7 +580,7 @@
         
         <div class="btn-group">
             <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary" data-i18n="btn_trial">14-Day Free Trial Download</a>
-            <a href="#editions" class="btn btn-secondary" data-i18n="btn_compare">Compare Editions</a>
+            <a href="#pricing" class="btn btn-gold" data-i18n="btn_hero_buy">Get Lifetime VIP (€149)</a>
             <a href="#modules" class="btn btn-secondary" data-i18n="btn_explore">Explore Modules</a>
         </div>
     </section>
@@ -722,118 +695,94 @@
         </div>
     </section>
 
-    <!-- SEKTION 4: EDITIONS & SPECIFICATIONS (VERGLEICH LITE VS PRO SIGNATURE) -->
-    <section class="section editions-section" id="editions">
-        <h2 class="section-title" data-i18n="sec_editions_title">Editions & Specifications</h2>
-        <p class="section-subtitle" data-i18n="sec_editions_sub">Choose the edition that fits your workflow. From a rock-solid starter setup to the ultimate unbounded 3D Signature mastering workstation.</p>
+    <!-- SEKTION 4: FLAGSHIP PRICING & WORKSTATION SPECIFICATIONS -->
+    <section class="section pricing-section" id="pricing">
+        <h2 class="section-title" data-i18n="sec_pricing_title">The Pro Signature Experience</h2>
+        <p class="section-subtitle" data-i18n="sec_pricing_sub">One uncompromising workstation. Fully functional 14-day evaluation, then yours for a lifetime.</p>
         
-        <!-- Two Tier Action Cards -->
-        <div class="editions-cards-wrapper">
-            <!-- Lite Card -->
-            <div class="edition-tier-card lite">
-                <div class="tier-header">
-                    <h3>V-CHANNEL Lite</h3>
-                    <div class="tier-price" data-i18n="lite_tier_subtitle">Starter & 14-Day Evaluation</div>
-                </div>
-                <ul class="tier-highlights">
-                    <li><span class="icon">✓</span> <strong data-i18n="spec_tracks_label">Audio Tracks:</strong>&nbsp;<span data-i18n="spec_lite_tracks">Up to 16 Tracks</span></li>
-                    <li><span class="icon">✓</span> <strong data-i18n="spec_busses_label">Subgroups / Aux:</strong>&nbsp;<span data-i18n="spec_lite_busses">2 Busses</span></li>
-                    <li><span class="icon">✓</span> <strong data-i18n="spec_kits_label">BEATCLOUD Kits:</strong>&nbsp;<span data-i18n="spec_lite_kits">Factory Kit 01_Club_909</span></li>
-                    <li><span class="icon">✓</span> <strong data-i18n="spec_3d_label">V-SPH3RE 3D:</strong>&nbsp;<span data-i18n="spec_lite_3d">Binaural 3D Headphone</span></li>
-                    <li><span class="icon">✓</span> <strong data-i18n="spec_scratch_label">V-SCRATCH LIVE:</strong>&nbsp;<span data-i18n="spec_scratch_val">Full Turntablism & GMX MIDI</span></li>
-                    <li><span class="icon">✓</span> <strong data-i18n="spec_dsp_label">vir2ose DSP:</strong>&nbsp;<span data-i18n="spec_dsp_val">Full Suite (VPPEQ-1, VDC, VFPA)</span></li>
-                </ul>
-                <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary" style="text-align: center;" data-i18n="btn_dl_lite">Download Free Trial</a>
-            </div>
-
-            <!-- Pro Signature Card (Mit integriertem Paddle Checkout) -->
+        <!-- Flagship Single-Tier Card -->
+        <div class="pricing-card-wrapper">
             <div class="edition-tier-card pro">
                 <div class="badge-recommended" data-i18n="badge_flagship">Flagship Edition</div>
                 <div class="tier-header">
                     <h3>PRO Signature 1.0</h3>
-                    <div class="tier-price" data-i18n="pro_tier_subtitle">Lifetime VIP License • €149.00</div>
+                    <div class="tier-price" data-i18n="pro_tier_subtitle">Lifetime VIP License • €149.00 (One-Time Purchase)</div>
                 </div>
                 <ul class="tier-highlights">
-                    <li><span class="icon">★</span> <strong data-i18n="spec_tracks_label">Audio Tracks:</strong>&nbsp;<span data-i18n="spec_pro_tracks">Unlimited (Up to 10,000)</span></li>
-                    <li><span class="icon">★</span> <strong data-i18n="spec_busses_label">Subgroups / Aux:</strong>&nbsp;<span data-i18n="spec_pro_busses">Unlimited (Up to 1,000)</span></li>
-                    <li><span class="icon">★</span> <strong data-i18n="spec_kits_label">BEATCLOUD Kits:</strong>&nbsp;<span data-i18n="spec_pro_kits">All 4 Kits (909, LoFi, Organic, Trap)</span></li>
-                    <li><span class="icon">★</span> <strong data-i18n="spec_3d_label">V-SPH3RE 3D:</strong>&nbsp;<span data-i18n="spec_pro_3d">Full 7.1.4 Dolby Atmos Bed & 5.1</span></li>
-                    <li><span class="icon">★</span> <strong data-i18n="spec_scratch_label">V-SCRATCH LIVE:</strong>&nbsp;<span data-i18n="spec_scratch_val">Full Turntablism & GMX MIDI</span></li>
-                    <li><span class="icon">★</span> <strong data-i18n="spec_dsp_label">vir2ose DSP:</strong>&nbsp;<span data-i18n="spec_dsp_val">Full Suite (VPPEQ-1, VDC, VFPA)</span></li>
+                    <li><span class="icon">★</span> <div><strong data-i18n="spec_tracks_label">Audio Tracks:</strong> <span data-i18n="spec_pro_tracks">Unlimited (Up to 10,000)</span></div></li>
+                    <li><span class="icon">★</span> <div><strong data-i18n="spec_busses_label">Subgroups / Aux:</strong> <span data-i18n="spec_pro_busses">Unlimited (Up to 1,000 Busses)</span></div></li>
+                    <li><span class="icon">★</span> <div><strong data-i18n="spec_3d_label">V-SPH3RE 3D:</strong> <span data-i18n="spec_pro_3d">Full 7.1.4 Dolby Atmos Bed & Binaural</span></div></li>
+                    <li><span class="icon">★</span> <div><strong data-i18n="spec_scratch_label">V-SCRATCH LIVE:</strong> <span data-i18n="spec_pro_scratch">Full Turntablism & GMX MIDI Mapping</span></div></li>
+                    <li><span class="icon">★</span> <div><strong data-i18n="spec_kits_label">BEATCLOUD:</strong> <span data-i18n="spec_pro_kits">All 4 Factory Kits & .vbeat Vault</span></div></li>
+                    <li><span class="icon">★</span> <div><strong data-i18n="spec_dsp_label">vir2ose DSP:</strong> <span data-i18n="spec_pro_dsp">Unrestricted Mastering Suite (EQ, Comp, Analyser)</span></div></li>
                 </ul>
-                <!-- PADDLE CHECKOUT TRIGGER BUTTON -->
-                <button onclick="openCheckout()" class="btn btn-gold" style="text-align: center; width: 100%;" data-i18n="btn_dl_pro">Buy Pro Signature (€149)</button>
+                
+                <div style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
+                    <a href="https://github.com/vir2ose-code/V-CHANNEL-WORKSTATION-SHOP/releases/download/1.0.0-pro/V-CHANNEL_STUDIO_PRO_1.0_Signature_Setup.exe" class="btn btn-primary" style="flex: 1; text-align: center;" data-i18n="btn_dl_trial">Download 14-Day Trial</a>
+                    <button onclick="openCheckout()" class="btn btn-gold" style="flex: 1; text-align: center;" data-i18n="btn_buy_pro">Buy Pro Signature (€149)</button>
+                </div>
             </div>
         </div>
 
-        <!-- Detailed Feature Comparison Table -->
-        <div class="table-container">
-            <table class="spec-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="th_feature">Feature / Architecture</th>
-                        <th data-i18n="th_edition_lite">V-CHANNEL Lite</th>
-                        <th data-i18n="th_edition_pro">👑 PRO Signature Edition</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong data-i18n="row_tracks">Max Audio Tracks</strong></td>
-                        <td data-i18n="cell_tracks_lite">16 Tracks (Starter)</td>
-                        <td class="status-gold" data-i18n="cell_tracks_pro"><strong>Unlimited</strong> (up to 10,000 tracks)</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_busses">Subgroups / Aux Busses</strong></td>
-                        <td data-i18n="cell_busses_lite">2 Busses</td>
-                        <td class="status-gold" data-i18n="cell_busses_pro"><strong>Unlimited</strong> (up to 1,000 busses)</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_kits">BEATCLOUD Drum-Kits</strong></td>
-                        <td data-i18n="cell_kits_lite">1 Factory Kit (01_Club_909)</td>
-                        <td class="status-gold" data-i18n="cell_kits_pro"><strong>All 4 Kits</strong> (Club 909, LoFi, Organic, Trap)</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_3d">V-SPH3RE 3D Spatial Audio</strong></td>
-                        <td data-i18n="cell_3d_lite">Binaural 3D Stereo (Headphones)</td>
-                        <td class="status-gold" data-i18n="cell_3d_pro"><strong>Full 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_scratch">V-SCRATCH LIVE Turntablism</strong></td>
-                        <td class="status-check" data-i18n="cell_scratch_lite">✓ Fully Enabled (Jogwheel, Pads, Fader)</td>
-                        <td class="status-gold" data-i18n="cell_scratch_pro">✓ Fully Enabled + Hardware DJ Controller Mapping</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_gmx">Gemini GMX MIDI DJ Controller</strong></td>
-                        <td class="status-check" data-i18n="cell_gmx_lite">✓ Supported (Plug &amp; Play)</td>
-                        <td class="status-gold" data-i18n="cell_gmx_pro">✓ Bidirectional MIDI LED Feedback &amp; Scratch</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_chopper">V-CHOPPER 3D Spatial Slicer</strong></td>
-                        <td class="status-check" data-i18n="cell_chopper_lite">✓ Fully Enabled (−12 to +12 st Pitch)</td>
-                        <td class="status-gold" data-i18n="cell_chopper_pro">✓ Fully Enabled + 3D Slice Panning</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_dsp">vir2ose DSP Mastering Suite</strong></td>
-                        <td class="status-check" data-i18n="cell_dsp_lite">✓ VPPEQ-1, VDC 2.0 &amp; VFPA 1.0</td>
-                        <td class="status-gold" data-i18n="cell_dsp_pro">✓ Unrestricted Master Bus Mastering Chain</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_score">Score &amp; PDF Export</strong></td>
-                        <td class="status-check" data-i18n="cell_score_lite">✓ Grand Staff Notation &amp; PDF</td>
-                        <td class="status-gold" data-i18n="cell_score_pro">✓ Full Print-Ready Score Generation</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_engine">Audio Engine &amp; Performance</strong></td>
-                        <td data-i18n="cell_engine_lite">64-Bit Float, ASIO / WASAPI / SSL</td>
-                        <td class="status-gold" data-i18n="cell_engine_pro">64-Bit Float, Zero-Latency C++/JUCE Core</td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="row_license">License Type</strong></td>
-                        <td data-i18n="cell_license_lite">14-Day Free Evaluation</td>
-                        <td class="status-gold" data-i18n="cell_license_pro"><strong>Signature Lifetime VIP License</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Full Technical Specification Table -->
+        <div id="specs" style="scroll-margin-top: 80px;">
+            <h3 style="text-align: center; color: var(--gold-accent); margin-bottom: 25px; font-size: 1.4rem; font-weight: 800;" data-i18n="specs_table_heading">Workstation Specifications & Architecture</h3>
+            <div class="table-container">
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_feature">Architecture / Component</th>
+                            <th data-i18n="th_edition_pro">👑 PRO Signature 1.0 Specification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong data-i18n="row_tracks">Audio Tracks Capacity</strong></td>
+                            <td class="status-gold" data-i18n="cell_tracks_pro"><strong>Unlimited</strong> (up to 10,000 tracks)</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_busses">Subgroups & Aux Returns</strong></td>
+                            <td class="status-gold" data-i18n="cell_busses_pro"><strong>Unlimited</strong> (up to 1,000 busses)</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_3d">V-SPH3RE 3D Spatial Audio</strong></td>
+                            <td class="status-gold" data-i18n="cell_3d_pro"><strong>Full 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround + Woodworth HRTF Binaural</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_scratch">V-SCRATCH LIVE Turntablism</strong></td>
+                            <td class="status-gold" data-i18n="cell_scratch_pro">Zero-Latency Vinyl Deck, Crossfader, 8 Performance Pads, 1-Click [REC TO TIMELINE]</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_gmx">DJ MIDI Hardware Support</strong></td>
+                            <td class="status-gold" data-i18n="cell_gmx_pro">✓ Gemini GMX Dedicated Mapping (Bidirectional MIDI LED Feedback, Jog Spin, Pitch & Pads)</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_chopper">V-CHOPPER Spatial Slicer</strong></td>
+                            <td class="status-gold" data-i18n="cell_chopper_pro">✓ Transient Slicing, Smooth Pitch (−12 to +12 st), Direct 3D Spatial Slice Panning</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_kits">BEATCLOUD Drum Engine</strong></td>
+                            <td class="status-gold" data-i18n="cell_kits_pro">✓ All 4 Factory Kits (Club 909, LoFi Retro, Organic, Urban Trap) &amp; .vbeat Community Exchange</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_dsp">vir2ose DSP Mastering Suite</strong></td>
+                            <td class="status-gold" data-i18n="cell_dsp_pro">✓ VPPEQ-1 (4 Analog Curves), VDC 2.0 Precision Compressor &amp; VFPA 1.0 Realtime Analyser</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_score">Score &amp; PDF Export</strong></td>
+                            <td class="status-gold" data-i18n="cell_score_pro">✓ Grand Staff Classical Notation (Treble & Bass Clefs) with 1-Click Print-Ready A4 PDF</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_engine">Audio Engine Core</strong></td>
+                            <td class="status-gold" data-i18n="cell_engine_pro">64-Bit Float Precision, Zero-Latency C++/JUCE Engine, ASIO / WASAPI / SSL Support</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-i18n="row_license">License & Delivery</strong></td>
+                            <td class="status-gold" data-i18n="cell_license_pro"><strong>Lifetime VIP Signature License</strong> • Instant Delivery via Paddle</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -843,17 +792,17 @@
 
         <!-- Rechtliche Pflichtlinks für Paddle & Compliance -->
         <p style="margin-top: 12px; font-size: 0.85rem;">
-            <a href="impressum.html" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan-glow)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_imprint">Imprint / Legal Notice</a> • 
-            <a href="datenschutz.html" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan-glow)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_privacy">Privacy Policy</a> • 
-            <a href="agb.html" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan-glow)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_terms">Terms &amp; Conditions</a>
+            <a href="impressum.html" data-i18n="footer_imprint">Imprint / Legal Notice</a> • 
+            <a href="datenschutz.html" data-i18n="footer_privacy">Privacy Policy</a> • 
+            <a href="agb.html" data-i18n="footer_terms">Terms &amp; Conditions</a>
         </p>
 
         <p style="margin-top: 10px;" data-i18n="footer_sub">KVR Audio Developer Hub Verified • Buy it once, own it forever.</p>
     </footer>
 
-    <!-- PADDLE INITIALIZATION & CHECKOUT LOGIK -->
+    <!-- PADDLE INITIALIZATION & CHECKOUT LOGIC -->
     <script>
-        // Paddle mit deinem echten Live-Token initialisieren
+        // Initialize Paddle with live seller token
         Paddle.Initialize({ 
             token: 'live_c448056df1b856fe9ffc9733d56' 
         });
@@ -876,12 +825,13 @@
             en: {
                 nav_modules: "Modules",
                 nav_dsp: "DSP Suite",
-                nav_editions: "Editions & Specs",
+                nav_specs: "Specifications",
+                nav_pricing: "VIP License",
                 nav_download: "Download Trial",
                 hero_title: "THE NEW EXPERIENCE IN MUSIC PRODUCTION",
                 hero_desc: "Discover the world's first DAW with native 3D Immersive Audio, integrated Slicing, Live Turntablism, and uncompromising C++/JUCE performance.",
                 btn_trial: "14-Day Free Trial Download",
-                btn_compare: "Compare Editions",
+                btn_hero_buy: "Get Lifetime VIP (€149)",
                 btn_explore: "Explore Modules",
                 sec_modules_title: "Native Workflow Powerhouse",
                 sec_modules_sub: "Forged from 26 years of studio expertise and cutting-edge DSP architecture.",
@@ -896,65 +846,49 @@
                 card_eq_desc: "7-Band Parametric Equalizer featuring 4 analog curves (SSL, Neve, API, Pultec) alongside a high-precision Note Editor with dynamic note scaling.",
                 card_vpad_desc: "Performance Pad Controller & Drum Sampler with individual bus routing, velocity curves, and real-time cutoff/resonance filtering.",
                 card_analyser_desc: "Real-Time Frequency & Phase Alignment Visualizer with EBU R128 Loudness-Metering, stereo goniometer, and analog harmonic saturation.",
-                sec_editions_title: "Editions & Specifications",
-                sec_editions_sub: "Choose the edition that fits your workflow. From a rock-solid starter setup to the ultimate unbounded 3D Signature mastering workstation.",
-                lite_tier_subtitle: "Starter & 14-Day Evaluation",
-                pro_tier_subtitle: "Lifetime VIP License • €149.00",
+                sec_pricing_title: "The Pro Signature Experience",
+                sec_pricing_sub: "One uncompromising workstation. Fully functional 14-day evaluation, then yours for a lifetime.",
                 badge_flagship: "Flagship Edition",
+                pro_tier_subtitle: "Lifetime VIP License • €149.00 (One-Time Purchase)",
                 spec_tracks_label: "Audio Tracks:",
                 spec_busses_label: "Subgroups / Aux:",
-                spec_kits_label: "BEATCLOUD Kits:",
                 spec_3d_label: "V-SPH3RE 3D:",
                 spec_scratch_label: "V-SCRATCH LIVE:",
+                spec_kits_label: "BEATCLOUD:",
                 spec_dsp_label: "vir2ose DSP:",
-                spec_lite_tracks: "Up to 16 Tracks",
                 spec_pro_tracks: "Unlimited (Up to 10,000)",
-                spec_lite_busses: "2 Busses",
-                spec_pro_busses: "Unlimited (Up to 1,000)",
-                spec_lite_kits: "Factory Kit 01_Club_909",
-                spec_pro_kits: "All 4 Kits (909, LoFi, Organic, Trap)",
-                spec_lite_3d: "Binaural 3D Headphone",
-                spec_pro_3d: "Full 7.1.4 Dolby Atmos Bed & 5.1",
-                spec_scratch_val: "Full Turntablism & GMX MIDI",
-                spec_dsp_val: "Full Suite (VPPEQ-1, VDC, VFPA)",
-                btn_dl_lite: "Download Free Trial",
-                btn_dl_pro: "Buy Pro Signature (€149)",
-                th_feature: "Feature / Architecture",
-                row_tracks: "Max Audio Tracks",
-                row_busses: "Subgroups / Aux Busses",
-                row_kits: "BEATCLOUD Drum-Kits",
-                row_3d: "V-SPH3RE 3D Spatial Audio",
-                row_scratch: "V-SCRATCH LIVE Turntablism",
-                row_gmx: "Gemini GMX MIDI DJ Controller",
-                row_chopper: "V-CHOPPER 3D Spatial Slicer",
-                row_dsp: "vir2ose DSP Mastering Suite",
-                row_score: "Score & PDF Export",
-                row_engine: "Audio Engine & Performance",
-                row_license: "License Type",
-                th_edition_lite: "V-CHANNEL Lite",
-                th_edition_pro: "👑 PRO Signature Edition",
-                cell_tracks_lite: "16 Tracks (Starter)",
+                spec_pro_busses: "Unlimited (Up to 1,000 Busses)",
+                spec_pro_3d: "Full 7.1.4 Dolby Atmos Bed & Binaural",
+                spec_pro_scratch: "Full Turntablism & GMX MIDI Mapping",
+                spec_pro_kits: "All 4 Factory Kits & .vbeat Vault",
+                spec_pro_dsp: "Unrestricted Mastering Suite (EQ, Comp, Analyser)",
+                btn_dl_trial: "Download 14-Day Trial",
+                btn_buy_pro: "Buy Pro Signature (€149)",
+                specs_table_heading: "Workstation Specifications & Architecture",
+                th_feature: "Architecture / Component",
+                th_edition_pro: "👑 PRO Signature 1.0 Specification",
+                row_tracks: "Audio Tracks Capacity",
                 cell_tracks_pro: "<strong>Unlimited</strong> (up to 10,000 tracks)",
-                cell_busses_lite: "2 Busses",
+                row_busses: "Subgroups & Aux Returns",
                 cell_busses_pro: "<strong>Unlimited</strong> (up to 1,000 busses)",
-                cell_kits_lite: "1 Factory Kit (01_Club_909)",
-                cell_kits_pro: "<strong>All 4 Kits</strong> (Club 909, LoFi, Organic, Trap)",
-                cell_3d_lite: "Binaural 3D Stereo (Headphones)",
-                cell_3d_pro: "<strong>Full 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround",
-                cell_scratch_lite: "✓ Fully Enabled (Jogwheel, Pads, Fader)",
-                cell_scratch_pro: "✓ Fully Enabled + Hardware DJ Controller Mapping",
-                cell_gmx_lite: "✓ Supported (Plug &amp; Play)",
-                cell_gmx_pro: "✓ Bidirectional MIDI LED Feedback &amp; Scratch",
-                cell_chopper_lite: "✓ Fully Enabled (−12 to +12 st Pitch)",
-                cell_chopper_pro: "✓ Fully Enabled + 3D Slice Panning",
-                cell_dsp_lite: "✓ VPPEQ-1, VDC 2.0 &amp; VFPA 1.0",
-                cell_dsp_pro: "✓ Unrestricted Master Bus Mastering Chain",
-                cell_score_lite: "✓ Grand Staff Notation &amp; PDF",
-                cell_score_pro: "✓ Full Print-Ready Score Generation",
-                cell_engine_lite: "64-Bit Float, ASIO / WASAPI / SSL",
-                cell_engine_pro: "64-Bit Float, Zero-Latency C++/JUCE Core",
-                cell_license_lite: "14-Day Free Evaluation",
-                cell_license_pro: "<strong>Signature Lifetime VIP License</strong>",
+                row_3d: "V-SPH3RE 3D Spatial Audio",
+                cell_3d_pro: "<strong>Full 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround + Woodworth HRTF Binaural",
+                row_scratch: "V-SCRATCH LIVE Turntablism",
+                cell_scratch_pro: "Zero-Latency Vinyl Deck, Crossfader, 8 Performance Pads, 1-Click [REC TO TIMELINE]",
+                row_gmx: "DJ MIDI Hardware Support",
+                cell_gmx_pro: "✓ Gemini GMX Dedicated Mapping (Bidirectional MIDI LED Feedback, Jog Spin, Pitch & Pads)",
+                row_chopper: "V-CHOPPER Spatial Slicer",
+                cell_chopper_pro: "✓ Transient Slicing, Smooth Pitch (−12 to +12 st), Direct 3D Spatial Slice Panning",
+                row_kits: "BEATCLOUD Drum Engine",
+                cell_kits_pro: "✓ All 4 Factory Kits (Club 909, LoFi Retro, Organic, Urban Trap) &amp; .vbeat Community Exchange",
+                row_dsp: "vir2ose DSP Mastering Suite",
+                cell_dsp_pro: "✓ VPPEQ-1 (4 Analog Curves), VDC 2.0 Precision Compressor &amp; VFPA 1.0 Realtime Analyser",
+                row_score: "Score & PDF Export",
+                cell_score_pro: "✓ Grand Staff Classical Notation (Treble & Bass Clefs) with 1-Click Print-Ready A4 PDF",
+                row_engine: "Audio Engine Core",
+                cell_engine_pro: "64-Bit Float Precision, Zero-Latency C++/JUCE Engine, ASIO / WASAPI / SSL Support",
+                row_license: "License & Delivery",
+                cell_license_pro: "<strong>Lifetime VIP Signature License</strong> • Instant Delivery via Paddle",
                 footer_rights: "All rights reserved.",
                 footer_imprint: "Imprint / Legal Notice",
                 footer_privacy: "Privacy Policy",
@@ -964,12 +898,13 @@
             de: {
                 nav_modules: "Module",
                 nav_dsp: "DSP Suite",
-                nav_editions: "Editionen & Specs",
+                nav_specs: "Spezifikationen",
+                nav_pricing: "VIP Lizenz",
                 nav_download: "Testversion laden",
                 hero_title: "DIE NEUE ERFAHRUNG IN DER MUSIKPRODUKTION",
                 hero_desc: "Entdecke die weltweit erste DAW mit nativem 3D Immersive Audio, integriertem Slicing, Live-Turntablism und kompromissloser C++/JUCE Performance.",
                 btn_trial: "14-Tage Free Trial Download",
-                btn_compare: "Editionen vergleichen",
+                btn_hero_buy: "Lifetime VIP sichern (€149)",
                 btn_explore: "Module entdecken",
                 sec_modules_title: "Natives Workflow-Kraftwerk",
                 sec_modules_sub: "Entwickelt aus 26 Jahren Studio-Praxis und modernster DSP-Architektur.",
@@ -984,65 +919,49 @@
                 card_eq_desc: "7-Band Parametric Equalizer mit 4 analogen Konsolen-Kurven (SSL, Neve, API, Pultec) und hochpräziser Note-Editor mit Noten-Skalierung.",
                 card_vpad_desc: "Performance Pad Controller & Drum Sampler mit individuellen Bus-Zuweisungen und Echtzeit-Cutoff/Reso-Steuerung.",
                 card_analyser_desc: "Real-Time Frequency & Phase Alignment Visualizer mit EBU R128 Loudness-Metering, Goniometer und analoger Sättigung.",
-                sec_editions_title: "Editionen & Spezifikationen",
-                sec_editions_sub: "Wähle die Edition, die perfekt zu deinem Workflow passt. Vom soliden Einstieg bis zur grenzenlosen 3D Signature Mastering-Workstation.",
-                lite_tier_subtitle: "Starter & 14-Tage Testversion",
-                pro_tier_subtitle: "Lifetime VIP Lizenz • €149.00",
+                sec_pricing_title: "Die Pro Signature Erfahrung",
+                sec_pricing_sub: "Eine kompromisslose Workstation. 14 Tage voll funktionsfähig testen, danach für immer besitzen.",
                 badge_flagship: "Flaggschiff Edition",
+                pro_tier_subtitle: "Lifetime VIP Lizenz • €149.00 (Einmalzahlung)",
                 spec_tracks_label: "Audiospuren:",
                 spec_busses_label: "Subgruppen / Aux:",
-                spec_kits_label: "BEATCLOUD Kits:",
                 spec_3d_label: "V-SPH3RE 3D:",
                 spec_scratch_label: "V-SCRATCH LIVE:",
+                spec_kits_label: "BEATCLOUD:",
                 spec_dsp_label: "vir2ose DSP:",
-                spec_lite_tracks: "Bis zu 16 Spuren",
                 spec_pro_tracks: "Unbegrenzt (bis zu 10.000)",
-                spec_lite_busses: "2 Busse",
-                spec_pro_busses: "Unbegrenzt (bis zu 1.000)",
-                spec_lite_kits: "Factory Kit 01_Club_909",
-                spec_pro_kits: "Alle 4 Kits (909, LoFi, Organic, Trap)",
-                spec_lite_3d: "Binaurales 3D Stereo (Kopfhörer)",
-                spec_pro_3d: "Volles 7.1.4 Atmos Bed & 5.1",
-                spec_scratch_val: "Voll verfügbar + GMX MIDI",
-                spec_dsp_val: "Volle Suite (VPPEQ-1, VDC, VFPA)",
-                btn_dl_lite: "Kostenlose Testversion",
-                btn_dl_pro: "Pro Signature kaufen (€149)",
-                th_feature: "Feature / Architektur",
-                row_tracks: "Max. Audiospuren",
-                row_busses: "Subgruppen / Aux-Busse",
-                row_kits: "BEATCLOUD Drum-Kits",
-                row_3d: "V-SPH3RE 3D Spatial Audio",
-                row_scratch: "V-SCRATCH LIVE Turntablism",
-                row_gmx: "Gemini GMX MIDI DJ-Controller",
-                row_chopper: "V-CHOPPER Spatial Slicer",
-                row_dsp: "vir2ose DSP Mastering Suite",
-                row_score: "Partitur & PDF Export",
-                row_engine: "Audio Engine & Performance",
-                row_license: "Lizenzmodell",
-                th_edition_lite: "V-CHANNEL Lite",
-                th_edition_pro: "👑 PRO Signature Edition",
-                cell_tracks_lite: "16 Spuren (Starter)",
+                spec_pro_busses: "Unbegrenzt (bis zu 1.000 Busse)",
+                spec_pro_3d: "Volles 7.1.4 Dolby Atmos Bed & Binaural",
+                spec_pro_scratch: "Volles Turntablism & GMX MIDI Mapping",
+                spec_pro_kits: "Alle 4 Factory-Kits & .vbeat Vault",
+                spec_pro_dsp: "Uneingeschränkte Mastering-Suite (EQ, Comp, Analyser)",
+                btn_dl_trial: "14-Tage Testversion laden",
+                btn_buy_pro: "Pro Signature kaufen (€149)",
+                specs_table_heading: "Workstation Spezifikationen & Architektur",
+                th_feature: "Architektur / Komponente",
+                th_edition_pro: "👑 PRO Signature 1.0 Spezifikation",
+                row_tracks: "Audiospuren-Kapazität",
                 cell_tracks_pro: "<strong>Unbegrenzt</strong> (bis zu 10.000 Spuren)",
-                cell_busses_lite: "2 Busse",
+                row_busses: "Subgruppen & Aux-Returns",
                 cell_busses_pro: "<strong>Unbegrenzt</strong> (bis zu 1.000 Busse)",
-                cell_kits_lite: "1 Factory-Kit (01_Club_909)",
-                cell_kits_pro: "<strong>Alle 4 Kits</strong> (Club 909, LoFi, Organic, Trap)",
-                cell_3d_lite: "Binaurales 3D Stereo (Kopfhörer)",
-                cell_3d_pro: "<strong>Volles 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround",
-                cell_scratch_lite: "✓ Voll verfügbar (Jogwheel, Pads, Fader)",
-                cell_scratch_pro: "✓ Voll verfügbar + Hardware DJ-Controller Mapping",
-                cell_gmx_lite: "✓ Unterstützt (Plug &amp; Play)",
-                cell_gmx_pro: "✓ Bidirektionales MIDI LED Feedback &amp; Scratch",
-                cell_chopper_lite: "✓ Voll verfügbar (−12 bis +12 Halbtöne Pitch)",
-                cell_chopper_pro: "✓ Voll verfügbar + 3D Slice Panning",
-                cell_dsp_lite: "✓ VPPEQ-1, VDC 2.0 &amp; VFPA 1.0",
-                cell_dsp_pro: "✓ Uneingeschränkte Master-Bus Masteringkette",
-                cell_score_lite: "✓ Partitur &amp; PDF Export",
-                cell_score_pro: "✓ Druckfertige Partitur-Generierung",
-                cell_engine_lite: "64-Bit Float, ASIO / WASAPI / SSL",
-                cell_engine_pro: "64-Bit Float, Null Latenz C++/JUCE Core",
-                cell_license_lite: "14-Tage Kostenlose Testversion",
-                cell_license_pro: "<strong>Signature Lifetime VIP Lizenz</strong>",
+                row_3d: "V-SPH3RE 3D Spatial Audio",
+                cell_3d_pro: "<strong>Volles 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround + Woodworth HRTF Binaural",
+                row_scratch: "V-SCRATCH LIVE Turntablism",
+                cell_scratch_pro: "Latenzfreies Vinyl-Deck, Crossfader, 8 Performance-Pads, 1-Click [REC TO TIMELINE]",
+                row_gmx: "DJ MIDI Hardware Support",
+                cell_gmx_pro: "✓ Gemini GMX Direkt-Mapping (Bidirektionales MIDI LED Feedback, Jog Spin, Pitch & Pads)",
+                row_chopper: "V-CHOPPER Spatial Slicer",
+                cell_chopper_pro: "✓ Transienten-Slicing, stufenloser Pitch (−12 bis +12 st), Direktes 3D Slice Panning",
+                row_kits: "BEATCLOUD Drum Engine",
+                cell_kits_pro: "✓ Alle 4 Factory-Kits (Club 909, LoFi Retro, Organic, Urban Trap) &amp; .vbeat Community-Austausch",
+                row_dsp: "vir2ose DSP Mastering Suite",
+                cell_dsp_pro: "✓ VPPEQ-1 (4 Konsolen-Kurven), VDC 2.0 Präzisionskompressor &amp; VFPA 1.0 Realtime Analyser",
+                row_score: "Partitur & PDF Export",
+                cell_score_pro: "✓ Grand Staff Notation (Violin- und Bassschlüssel) mit 1-Click druckfertigem A4 PDF",
+                row_engine: "Audio Engine Core",
+                cell_engine_pro: "64-Bit Float Präzision, Zero-Latency C++/JUCE Core, ASIO / WASAPI / SSL Support",
+                row_license: "Lizenzierung & Bereitstellung",
+                cell_license_pro: "<strong>Lifetime VIP Signature Lizenz</strong> • Sofortige Auslieferung über Paddle",
                 footer_rights: "Alle Rechte vorbehalten.",
                 footer_imprint: "Impressum",
                 footer_privacy: "Datenschutzerklärung",
@@ -1052,12 +971,13 @@
             pl: {
                 nav_modules: "Moduły",
                 nav_dsp: "Pakiet DSP",
-                nav_editions: "Wersje i Specyfikacja",
+                nav_specs: "Specyfikacja",
+                nav_pricing: "Licencja VIP",
                 nav_download: "Pobierz Wersję",
                 hero_title: "NOWE DOŚWIADCZENIE W PRODUKCJI MUZYCZNEJ",
                 hero_desc: "Odkryj pierwszą na świecie stację roboczą DAW z natywnym dźwiękiem immersyjnym 3D, zintegrowanym slicerem, turntablizmem na żywo i bezkompromisową wydajnością C++/JUCE.",
                 btn_trial: "Pobierz 14-dniowy Free Trial",
-                btn_compare: "Porównaj Wersje",
+                btn_hero_buy: "Kup Licencję VIP (€149)",
                 btn_explore: "Odkryj Moduły",
                 sec_modules_title: "Natywna Potęga Przepływu Pracy",
                 sec_modules_sub: "Zbudowane na bazie 26 lat doświadczenia studyjnego i najnowocześniejszej architektury DSP.",
@@ -1072,65 +992,49 @@
                 card_eq_desc: "7-pasmowy korektor parametryczny z 4 analogowymi krzywymi (SSL, Neve, API, Pultec) oraz precyzyjny edytor PianoRoll.",
                 card_vpad_desc: "Kontroler padów i sampler perkusyjny z przypisywaniem do szyn i regulacją filtrów w czasie rzeczywistym.",
                 card_analyser_desc: "Analizator częstotliwości i fazy w czasie rzeczywistym z pomiarem głośności EBU R128 i analogową saturacją.",
-                sec_editions_title: "Wersje i Porównanie Specyfikacji",
-                sec_editions_sub: "Wybierz wersję idealną dla swojego workflow — od solidnego startu po nielimitowaną stację masteringową 3D Signature.",
-                lite_tier_subtitle: "Wersja Startowa & 14-dniowy Test",
-                pro_tier_subtitle: "Wieczysta Licencja VIP • €149.00",
+                sec_pricing_title: "Doświadczenie Pro Signature",
+                sec_pricing_sub: "Jedna bezkompromisowa stacja robocza. W pełni funkcjonalny 14-dniowy test, a potem Twoja na zawsze.",
                 badge_flagship: "Wersja Flagowa",
+                pro_tier_subtitle: "Wieczysta Licencja VIP • €149.00 (Płatność jednorazowa)",
                 spec_tracks_label: "Ścieżki Audio:",
                 spec_busses_label: "Podgrupy / Aux:",
-                spec_kits_label: "Zestawy BEATCLOUD:",
                 spec_3d_label: "V-SPH3RE 3D:",
                 spec_scratch_label: "V-SCRATCH LIVE:",
-                spec_dsp_label: "Pakiet DSP vir2ose:",
-                spec_lite_tracks: "Do 16 ścieżek",
+                spec_kits_label: "BEATCLOUD:",
+                spec_dsp_label: "vir2ose DSP:",
                 spec_pro_tracks: "Bez limitu (do 10 000)",
-                spec_lite_busses: "2 szyny",
-                spec_pro_busses: "Bez limitu (do 1 000)",
-                spec_lite_kits: "Zestaw fabryczny 01_Club_909",
-                spec_pro_kits: "Wszystkie 4 zestawy (909, LoFi, Organic, Trap)",
-                spec_lite_3d: "Binauralny 3D (słuchawki)",
-                spec_pro_3d: "Pełne 7.1.4 Dolby Atmos Bed & 5.1",
-                spec_scratch_val: "Pełny turntablizm + obsługa GMX",
-                spec_dsp_val: "Pełny pakiet (VPPEQ-1, VDC, VFPA)",
-                btn_dl_lite: "Pobierz Wersję Próbną",
-                btn_dl_pro: "Kup Pro Signature (€149)",
-                th_feature: "Funkcja / Architektura",
-                row_tracks: "Maks. Ścieżki Audio",
-                row_busses: "Podgrupy / Szyny Aux",
-                row_kits: "Zestawy perkusyjne BEATCLOUD",
-                row_3d: "Dźwięk Przestrzenny V-SPH3RE 3D",
-                row_scratch: "Turntablizm V-SCRATCH LIVE",
-                row_gmx: "Kontroler DJ Gemini GMX MIDI",
-                row_chopper: "Slicer Przestrzenny V-CHOPPER",
-                row_dsp: "Pakiet Masteringowy vir2ose DSP",
-                row_score: "Partytura i Eksport do PDF",
-                row_engine: "Silnik Dźwiękowy & Wydajność",
-                row_license: "Typ Licencji",
-                th_edition_lite: "V-CHANNEL Lite",
-                th_edition_pro: "👑 Wersja PRO Signature",
-                cell_tracks_lite: "16 ścieżek (Wersja startowa)",
+                spec_pro_busses: "Bez limitu (do 1 000 szyn)",
+                spec_pro_3d: "Pełna matryca 7.1.4 Dolby Atmos Bed & Binaural",
+                spec_pro_scratch: "Pełny turntablizm & obsługa kontrolera GMX MIDI",
+                spec_pro_kits: "Wszystkie 4 zestawy fabryczne & chmura .vbeat",
+                spec_pro_dsp: "Kompletny pakiet masteringowy (EQ, Kompresor, Analizator)",
+                btn_dl_trial: "Pobierz 14-dniowy Free Trial",
+                btn_buy_pro: "Kup Pro Signature (€149)",
+                specs_table_heading: "Specyfikacja Techniczna i Architektura Workstation",
+                th_feature: "Architektura / Komponent",
+                th_edition_pro: "👑 PRO Signature 1.0 Specyfikacja",
+                row_tracks: "Maksymalna liczba ścieżek audio",
                 cell_tracks_pro: "<strong>Bez limitu</strong> (do 10 000 ścieżek)",
-                cell_busses_lite: "2 szyny Aux / Grupy",
+                row_busses: "Podgrupy i powroty Aux",
                 cell_busses_pro: "<strong>Bez limitu</strong> (do 1 000 szyn)",
-                cell_kits_lite: "1 zestaw fabryczny (01_Club_909)",
-                cell_kits_pro: "<strong>Wszystkie 4 zestawy</strong> (Club 909, LoFi, Organic, Trap)",
-                cell_3d_lite: "Binauralny dźwięk 3D (słuchawki)",
-                cell_3d_pro: "<strong>Pełna matryca 7.1.4 Dolby Atmos</strong> &amp; 5.1 Surround",
-                cell_scratch_lite: "✓ W pełni odblokowane (koło jog, pady, crossfader)",
-                cell_scratch_pro: "✓ W pełni odblokowane + obsługa kontrolera DJ",
-                cell_gmx_lite: "✓ Obsługiwane (Plug &amp; Play)",
-                cell_gmx_pro: "✓ Dwukierunkowa komunikacja MIDI LED i scratch",
-                cell_chopper_lite: "✓ W pełni odblokowane (pitch −12 do +12 półtonów)",
-                cell_chopper_pro: "✓ W pełni odblokowane + pozycjonowanie 3D",
-                cell_dsp_lite: "✓ Wtyczki VPPEQ-1, VDC 2.0 i VFPA 1.0",
-                cell_dsp_pro: "✓ Nieograniczony tor masteringowy na szynie Master",
-                cell_score_lite: "✓ Notacja klasyczna (dwugłos) i PDF",
-                cell_score_pro: "✓ Pełne generowanie profesjonalnej partytury",
-                cell_engine_lite: "64-Bit Float, ASIO / WASAPI / SSL (pełna jakość)",
-                cell_engine_pro: "64-Bit Float, bezlatencyjny rdzeń C++/JUCE",
-                cell_license_lite: "14-dniowa bezpłatna wersja próbna",
-                cell_license_pro: "<strong>Wieczysta licencja VIP Signature</strong>",
+                row_3d: "Dźwięk immersyjny V-SPH3RE 3D",
+                cell_3d_pro: "<strong>Pełna matryca 7.1.4 Dolby Atmos Bed</strong> &amp; 5.1 Surround + odsłuch binauralny HRTF",
+                row_scratch: "Turntablizm V-SCRATCH LIVE",
+                cell_scratch_pro: "Bezlatencyjny deck winylowy, crossfader, 8 padów, 1-Click [REC TO TIMELINE]",
+                row_gmx: "Wsparcie sprzętowych kontrolerów DJ",
+                cell_gmx_pro: "✓ Dedykowane mapowanie Gemini GMX (dwukierunkowe LED MIDI, koło jog, pitch i pady)",
+                row_chopper: "Slicer przestrzenny V-CHOPPER",
+                cell_chopper_pro: "✓ Cięcie transjentów, płynny pitch (−12 do +12 st), pozycjonowanie cięć w przestrzeni 3D",
+                row_kits: "Sekwencer perkusyjny BEATCLOUD",
+                cell_kits_pro: "✓ Wszystkie 4 zestawy fabryczne (Club 909, LoFi, Organic, Trap) &amp; wymiana wzorców .vbeat",
+                row_dsp: "Pakiet masteringowy vir2ose DSP",
+                cell_dsp_pro: "✓ VPPEQ-1 (4 krzywe analogowe), precyzyjny kompresor VDC 2.0 i analizator VFPA 1.0",
+                row_score: "Partytura i eksport do PDF",
+                cell_score_pro: "✓ Klasyczny zapis nutowy (dwugłos: klucz wiolinowy i basowy) z eksportem do druku A4 PDF",
+                row_engine: "Rdzeń silnika audio",
+                cell_engine_pro: "Precyzja 64-Bit Float, bezlatencyjny rdzeń C++/JUCE, pełne wsparcie ASIO / WASAPI / SSL",
+                row_license: "Licencja i dostawa",
+                cell_license_pro: "<strong>Wieczysta Licencja VIP Signature</strong> • Natychmiastowa dostawa przez Paddle",
                 footer_rights: "Wszelkie prawa zastrzeżone.",
                 footer_imprint: "Impressum / Nota prawna",
                 footer_privacy: "Polityka prywatności",
