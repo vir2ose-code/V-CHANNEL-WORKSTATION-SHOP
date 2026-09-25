@@ -344,6 +344,39 @@
             flex-grow: 1;
         }
 
+        /* VIDEO SHOWCASE SECTION */
+        .video-section {
+            padding: 85px 20px 95px;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0E131F 50%, var(--bg-dark) 100%);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .video-wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+            background: #000000;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid rgba(0, 212, 255, 0.45);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 212, 255, 0.25);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .video-wrapper:hover {
+            border-color: var(--cyan-glow);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 212, 255, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .feature-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            outline: none;
+            background: #000000;
+        }
+
         /* Plugins Sektion */
         .plugins-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0F131D 100%);
@@ -707,6 +740,19 @@
         </div>
     </section>
 
+    <!-- SEKTION: VIDEO SHOWCASE (DAZWISCHEN MITTIG) -->
+    <section class="section video-section" id="video">
+        <h2 class="section-title" data-i18n="sec_video_title">V-CHANNEL In Action</h2>
+        <p class="section-subtitle" data-i18n="sec_video_sub">Watch the live performance, workflow power, and intuitive user interface in action.</p>
+
+        <div class="video-wrapper">
+            <video controls playsinline preload="metadata" class="feature-video">
+                <source src="v_channel_demo_1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
     <!-- SEKTION 3: NATIVE DSP SUITE -->
     <section class="section plugins-section" id="dsp">
         <h2 class="section-title" data-i18n="sec_dsp_title">Powered by vir2ose DSP Suite</h2>
@@ -893,6 +939,8 @@
                 card_beatcloud_desc: "16-step sequencer with multi-out routing, 4 factory kits (Club 909, LoFi Retro, Organic, Urban Trap) and instant interactive .vbeat pattern sharing.",
                 card_bus_desc: "Floating pop-up FX rack for parallel aux returns (reverbs, delays) with zone focusing and seamless taskbar integration.",
                 card_score_desc: "Convert polyphonic MIDI clips with one click into classical notation (Grand Staff) with treble and bass clefs, and export directly to print-ready A4 PDF.",
+                sec_video_title: "V-CHANNEL In Action",
+                sec_video_sub: "Watch the live performance, workflow power, and intuitive user interface in action.",
                 sec_dsp_title: "Powered by vir2ose DSP Suite",
                 sec_dsp_sub: "The same uncompromising analog-modeled audio algorithms power the internal channels and master inserts.",
                 card_eq_desc: "7-Band Parametric Equalizer featuring 4 analog curves (SSL, Neve, API, Pultec) alongside a high-precision Note Editor with dynamic note scaling.",
@@ -966,6 +1014,8 @@
                 card_beatcloud_desc: "16-Step Sequencer mit Multi-Out Routing, 4 Factory-Kits (Club 909, LoFi Retro, Organic, Urban Trap) und direktem .vbeat Muster-Austausch.",
                 card_bus_desc: "Schwebendes PopUp-Effekt-Rack für parallele Aux-Returns (Reverbs, Delays) mit Zonen-Fokus und nahtloser Taskleisten-Kopplung.",
                 card_score_desc: "Verwandle polyphone MIDI-Clips mit einem Klick in klassische Partituren (Grand Staff) mit Violin- und Bassschlüssel und exportiere direkt nach A4 PDF.",
+                sec_video_title: "V-CHANNEL in Aktion",
+                sec_video_sub: "Erlebe die Live-Performance, den blitzschnellen Workflow und die intuitive Benutzeroberfläche.",
                 sec_dsp_title: "Powered by vir2ose DSP Suite",
                 sec_dsp_sub: "Dieselbe kompromisslose analog gemodelte Audio-Mathematik treibt auch die internen Kanäle und Master-Inserts an.",
                 card_eq_desc: "7-Band Parametric Equalizer mit 4 analogen Konsolen-Kurven (SSL, Neve, API, Pultec) und hochpräziser Note-Editor mit Noten-Skalierung.",
@@ -1039,6 +1089,8 @@
                 card_beatcloud_desc: "16-krokowy sekwencer z routingiem multi-out, 4 fabrycznymi zestawami (Club 909, LoFi, Organic, Trap) i błyskawiczną wymianą wzorców .vbeat.",
                 card_bus_desc: "Pływający pop-up rack efektowy dla równoległych szyn Aux (reverby, delaye) z inteligentnym dokowaniem do paska zadań.",
                 card_score_desc: "Przekształć polifoniczne klipy MIDI 1 kliknięciem w klasyczny zapis nutowy (Grand Staff) i eksportuj bezpośrednio do formatu A4 PDF.",
+                sec_video_title: "V-CHANNEL w Akcji",
+                sec_video_sub: "Zobacz wydajność na żywo, błyskawiczny przepływ pracy i intuicyjny interfejs użytkownika.",
                 sec_dsp_title: "Napędzane przez vir2ose DSP Suite",
                 sec_dsp_sub: "Te same bezkompromisowe algorytmy modelowania analogowego zasilają kanały miksera i szynę Master.",
                 card_eq_desc: "7-pasmowy korektor parametryczny z 4 analogowymi krzywymi (SSL, Neve, API, Pultec) oraz precyzyjny edytor PianoRoll.",
